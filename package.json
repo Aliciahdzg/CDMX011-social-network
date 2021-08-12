@@ -10,12 +10,14 @@
   ],
   "license": "MIT",
   "scripts": {
+    "publish": "gh-pages -d src",
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve src/"
+    "start": "serve src/",
+    "homepage": "https://Aliciahdzg.github.io/CDMX011-social-network"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -34,5 +36,8 @@
   },
   "engines": {
     "node": ">=10"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
