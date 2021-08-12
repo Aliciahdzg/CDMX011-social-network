@@ -7,7 +7,7 @@ form.addEventListener('click', (e) => {
   // const button = document.getElementById('submitBTN').value;
   const email = document.getElementById('emailUser').value;
   const password = document.getElementById('passwordUser').value;
-  alert(email, password);
+  console.log(email, password);
 
   auth
     .createUserWithEmailAndPassword(email, password)
@@ -15,3 +15,11 @@ form.addEventListener('click', (e) => {
       console.log('esta es la promesa');
     });
 });
+
+/*const providerGoogle = document.querySelector('#registerGoogle');
+providerGoogle.addEventListener('click', e => {
+  e.preventDefault();
+  const provider = firebase.auth.GoogleAuthProvider();
+  auth.
+  
+})*/
