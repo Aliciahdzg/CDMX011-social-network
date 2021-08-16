@@ -1,8 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 // import { myFunction } from './lib/index.js';
 // myFunction();
-const form = document.querySelector('button[type=submit]');
-form.addEventListener('click', (e) => {
+const formSignUp = document.querySelector('button[type=submit]');
+formSignUp.addEventListener('click', (e) => {
   e.preventDefault();
   // const button = document.getElementById('submitBTN').value;
   const email = document.getElementById('emailUser').value;
@@ -14,7 +14,25 @@ form.addEventListener('click', (e) => {
     .then(userCredential => {
       console.log('esta es la promesa');
     });
+  
 });
+
+const formSignIn = document.querySelector('#submitLogin');
+formSignIn.addEventListener('click', (e) => {
+  e.preventDefault();
+  // const button = document.getElementById('submitBTN').value;
+  const email = document.getElementById('emailLogin').value;
+  const password = document.getElementById('passwordLogin').value;
+  console.log(email, password);
+
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      console.log('ya iniciaste sesion');
+    });
+  
+});
+
 
 /*const providerGoogle = document.querySelector('#registerGoogle');
 providerGoogle.addEventListener('click', e => {
