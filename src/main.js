@@ -18,11 +18,11 @@ formSignUp.addEventListener('click', (e) => {
 });
 
 const formSignIn = document.querySelector('#submitLogin');
-formSignIn.addEventListener('submit', (e) => {
+formSignIn.addEventListener('click', (e) => {
   e.preventDefault();
   // const button = document.getElementById('submitBTN').value;
-  const email = document.getElementById('emailUser').value;
-  const password = document.getElementById('passwordUser').value;
+  const email = document.getElementById('emailLogin').value;
+  const password = document.getElementById('passwordLogin').value;
   console.log(email, password);
 
   auth
