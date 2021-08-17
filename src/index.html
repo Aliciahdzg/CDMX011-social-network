@@ -2,79 +2,92 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/jpg" href="favicon.png">
-    <title>PLANTAGRAM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/jpg" href="favicon.png">
+  <script src="home.js"></script>
+  <script src="signup.js"></script>
+  <script src="login.js"></script>
+  <title>PLANTAGRAM</title>
+
 </head>
 
 <body>
-    <section class="grid-father">
-        <!--LOGO Y TAL-->
-        <section class="container">
-            <img src="PlantagramLogo.png" alt="plantita" class="image-size">
-            <p class="welcome-text">Bienvenid@ a la plataforma destinada a los amantes de plantas</p>
+  <div id="root"></div>
+  <nav>
+    <ul>
+      <li id="home"><a href="#">Home</a></li>
+      <li id="login "><a href="#">Login</a></li>
+      <li id="sigup"><a href="#">Sigup</a></li>
+    </ul>
+  </nav>
+  <!--<section class="grid-father ">
+        LOGO Y TAL
+        <section class="container ">
+            <img src="PlantagramLogo.png " alt="plantita " class="image-size ">
+            <p class="welcome-text ">Bienvenid@ a la plataforma destinada a los amantes de plantas</p>
         </section>
-        <!--REGISTRO-->
-        <section class="container">
-            <form id="signup">
-                <!-- <label>Correo</label>-->
-                <input type="email" id="emailUser" class="form-elements" placeholder="Correo" name="Email" required />
-                <!--<label>Contraseña</label>-->
-                <input type="password" id="passwordUser" class="form-elements" placeholder="Contraseña" name="password-user" required>
-                <button type="submit" value="enviar" id="submitBTN" class="signup-button">Regístrate</button>
+        REGISTRO
+        <section class="container ">
+            <form id="signup ">
+                 <label>Correo</label>
+                <input type="email " id="emailUser " class="form-elements " placeholder="Correo " name="Email " required />
+                <label>Contraseña</label>
+                <input type="password " id="passwordUser " class="form-elements " placeholder="Contraseña " name="password-user " required>
+                <button type="submit " value="enviar " id="submitBTN " class="signup-button ">Regístrate</button>
             </form>
-            <p class="hr-test"><span>ó</span></p>
-            <button type="button" id="registerGoogle" class="signup-google button-google"> 
-             <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><div>Accede con Google</div></button>
+            <p class="hr-test "><span>ó</span></p>
+            <button type="button " id="registerGoogle " class="signup-google button-google "> 
+             <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg "><div>Accede con Google</div></button>
             <br>
-            <button type="button" id="loginInRegister" class="login-in-register">Inicia Sesion Aqui</p>
+            <button type="button " id="loginInRegister " class="login-in-register ">Inicia Sesion Aqui</p>
         </section>
-        <!--LOGIN -->
-        <!-- <section class="container-signin">
-            <form id="login">
+        LOGIN 
+         <section class="container-signin ">
+            <form id="login ">
 
-                <input type="email" id="emailLogin" class="form-elements" placeholder="Correo" name="Email" required />
+                <input type="email " id="emailLogin " class="form-elements " placeholder="Correo " name="Email " required />
 
-                <input type="password" id="passwordLogin" class="form-elements" placeholder="Contraseña" name="password-user" required>
-                <button type="submit" value="enviar" id="submitLogin" class="login-button">Inicia Sesión</button>
+                <input type="password " id="passwordLogin " class="form-elements " placeholder="Contraseña " name="password-user " required>
+                <button type="submit " value="enviar " id="submitLogin " class="login-button ">Inicia Sesión</button>
             </form>
             <p>ó</p>
-            <button type="button" id="loginGoogle" class="login-google"> 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg">
+            <button type="button " id="loginGoogle " class="login-google "> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg ">
                Inicia Sesión con Google</button>
-        </section> -->
-    </section>
+        </section> 
+    </section>-->
 
-    <!--FIREBASE-->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <!--FIREBASE-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js "></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js "></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyCePjssRyoR6G8wuu7NbwopYolEZvL5IVw",
-            authDomain: "plantagram-8b720.firebaseapp.com",
-            projectId: "plantagram-8b720",
-            storageBucket: "plantagram-8b720.appspot.com",
-            messagingSenderId: "419438451849",
-            appId: "1:419438451849:web:96555010ec2ba7afb1fa58"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-    </script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCePjssRyoR6G8wuu7NbwopYolEZvL5IVw ",
+      authDomain: "plantagram-8b720.firebaseapp.com ",
+      projectId: "plantagram-8b720 ",
+      storageBucket: "plantagram-8b720.appspot.com ",
+      messagingSenderId: "419438451849 ",
+      appId: "1:419438451849:web:96555010ec2ba7afb1fa58 "
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
 
-    <script type="module" src="main.js"></script>
+  <!-- <script type="module " src="main.js "></script> -->
+  <script type="module" src="app.js"></script>
 </body>
 
 </html>
