@@ -41,6 +41,8 @@ formSignIn.addEventListener('click', (e) => {
         });
 });
 
+ 
+
 /*const providerGoogle = document.querySelector('#registerGoogle');
 providerGoogle.addEventListener('click', e => {
   e.preventDefault();

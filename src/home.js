@@ -1,14 +1,15 @@
 const home = `
 <section class="grid-father">
     <section class="container ">
-        <img src="src/PlantagramLogo.png " alt="plantita " class="image-size ">
+        <img src="src/PlantagramLogo.png " alt="plantita " class="image-size " id="logo-img">
+        <img src="src/girlswithplants.jpg" alt="chicas" class="girls-plants">
         <p class="welcome-text ">Bienvenid@ a la plataforma destinada a los amantes de plantas</p>
     </section>
     <section class="container ">
     <form id="login ">
-    <label>Correo</label>
+ 
         <input type="email " id="emailLogin " class="form-elements " placeholder="Correo " name="Email " required />
-    <label>Contraseña</label>
+  
     <input type="password " id="passwordLogin " class="form-elements " placeholder="Contraseña " name="password-user " required>
     <button type="submit " value="enviar " id="submitLogin " class="signup-button ">Inicia Sesión</button>
     </form>

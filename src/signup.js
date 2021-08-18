@@ -2,10 +2,11 @@ const signup = `
 <section class="grid-father">
     <section class="container ">
             <form id="signup ">
-                <label>Correo</label>
-                    <input type="email " id="emailUser " class="form-elements " placeholder="Correo " name="Email " required />
-                <label>Contraseña</label>
+
+                <input type="email " id="emailUser " class="form-elements " placeholder="Correo " name="Email " required />
+
                 <input type="password " id="passwordUser " class="form-elements " placeholder="Contraseña " name="password-user " required>
+                
                 <button type="submit " value="enviar " id="submitBTN " class="signup-button ">Regístrate</button>
             </form>
             <p class="hr-test "><span>ó</span></p>
