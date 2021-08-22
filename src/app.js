@@ -1,3 +1,7 @@
+import { home } from "./home";
+import { signup } from "./signup";
+import { login } from "./login";
+
 const routes = {
     '/': home,
     '/login': login,
@@ -12,7 +16,9 @@ const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname
     )
-    rootDiv.innerHTML = routes[pathname]
+    // eliminar todos los nodos hijos de rootdiv
+
+    rootDiv.appendChild(routes[pathname]());
 };
 
 const homeRoute = document.querySelector('#home');
