@@ -1,38 +1,31 @@
+import { Home } from './home.js';
+import { Login } from './login.js';
+import { Post } from './post.js';
+import { Signup } from './signup.js';
+
 const routes = {
-    '/': home,
-    '/login': login,
-    '/signup': signup,
+  '/': Home,
+  '/login': Login,
+  '/signup': Signup,
+  '/post': Post,
 };
 
-const rootDiv = document.querySelector('#root');
-rootDiv.innerHTML = routes[window.location.pathname];
+const rootDiv = document.getElementById('root');
 
-const onNavigate = (pathname) => {
-    window.history.pushState({},
-        pathname,
-        window.location.origin + pathname
-    )
-    rootDiv.innerHTML = routes[pathname]
+export const onNavigate = (pathname) => {
+  window.history.pushState({},
+    pathname,
+    window.location.origin + pathname);
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[pathname]());
 };
 
-const homeRoute = document.querySelector('#home');
-
-function homeCharge() {
-    return onNavigate('/');
-}
-
-homeRoute.addEventListener('click', () => {
-    onNavigate('/');
-});
-const loginRoute = document.querySelector('#login');
-loginRoute.addEventListener('click', () => {
-    onNavigate('/login');
-});
-const signupRoute = document.querySelector('#signup');
-signupRoute.addEventListener('click', () => {
-    onNavigate('/signup');
-});
-
+window.onload = () => {
+  onNavigate('/');
+};
+const component = routes[window.location.pathname];
 window.onpopstate = () => {
-    rootDiv.innerHTML = routes[window.location.pathname];
+  rootDiv.appenChild(component());
 };
