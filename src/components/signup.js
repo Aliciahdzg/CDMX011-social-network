@@ -1,5 +1,9 @@
 export const signup = () => {
-    const html  = `
+  const htmlSignup = `
+  <head>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+
     <section class="grid-father">
         <section class="container ">
                 <form id="signup">
@@ -18,22 +22,32 @@ export const signup = () => {
         </section>
     </section>
     `;
-    const container = document.createElement('div')
-    container.innerHTML = html
+};
+//const containerSignup = document.createElement('div');
+//containerSignup.innerHTML = htmlSignup;
+document.addEventListener('DOMContentLoaded', () => {
+  const formSignUp = document.getElementById('signup').childNodes;
+  console.log(formSignUp);
+  formSignUp.addEventListener('click', (e) => {
+    e.preventDefault();
+    // const button = document.getElementById('submitBTN').value;
+    const email = document.getElementById('emailUser').value;
+    const password = document.getElementById('passwordUser').value;
+    console.log(email, password);
 
-    document.getElementById('').addEventListener
+    // eslint-disable-next-line no-undef
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log('esta es la promesa');
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
+});
 
-    return container
-    
-}
-const buttonRegister = () => {
-    const button = document.createElement('button');
-    button.classList.add('signup-button');
-    // button.setAttribute('type', 'submit');
-    // button.setAttribute('id','submitBTN');
-    // button.setAttribute('value','enviar');
-    button.textContent = 'Aqui estoy';
-    const form = document.getElementById('signup');
 
-form.appendChild(button);
-}
+//return containerSignup;

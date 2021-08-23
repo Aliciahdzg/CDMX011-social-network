@@ -1,5 +1,9 @@
 export const login = () => {
-    const htmlLogin =  `
+  const htmlLogin = `
+  <head>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  
     <section class="grid-father ">
         <section class="container ">
             <form id="login ">
@@ -20,10 +24,29 @@ export const login = () => {
     </section>
     `;
 
-    const containerLogin = document.createElement('div')
-    containerHome.innerHTML = htmlLogin
+  const containerLogin = document.createElement('div');
+  containerLogin.innerHTML = htmlLogin;
 
-    document.getElementById('').addEventListener
+  const formSignIn = document.querySelector('#submitLogin');
+  formSignIn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // const button = document.getElementById('submitBTN').value;
+    const email = document.getElementById('emailLogin').value;
+    const password = document.getElementById('passwordLogin').value;
+    console.log(email, password);
 
-    return containerLogin
-}
+    // eslint-disable-next-line no-undef
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log('ya iniciaste sesion');
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
+
+  return containerLogin;
+};

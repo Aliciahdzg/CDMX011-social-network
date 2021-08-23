@@ -1,44 +1,43 @@
-import { home } from "./home";
-import { signup } from "./signup";
-import { login } from "./login";
+import { home } from './components/home.js';
+import { signup } from './components/signup.js';
+import { login } from './components/login.js';
 
 const routes = {
-    '/': home,
-    '/login': login,
-    '/signup': signup,
+  '/': home,
+  '/login': login,
+  '/signup': signup,
 };
 
 const rootDiv = document.querySelector('#root');
 rootDiv.innerHTML = routes[window.location.pathname];
 
 const onNavigate = (pathname) => {
-    window.history.pushState({},
-        pathname,
-        window.location.origin + pathname
-    )
-    // eliminar todos los nodos hijos de rootdiv
+  window.history.pushState({},
+    pathname,
+    window.location.origin + pathname);
+  // eliminar todos los nodos hijos de rootdiv
 
-    rootDiv.appendChild(routes[pathname]());
+  rootDiv.innerHTML = routes[pathname];
+};
+
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
 };
 
 const homeRoute = document.querySelector('#home');
 
-function homeCharge() {
-    return onNavigate('/');
-}
+/* function homeCharge() {
+  return onNavigate('/');
+} */
 
 homeRoute.addEventListener('click', () => {
-    onNavigate('/');
+  onNavigate('/');
 });
 const loginRoute = document.querySelector('#login');
 loginRoute.addEventListener('click', () => {
-    onNavigate('/login');
+  onNavigate('/login');
 });
 const signupRoute = document.querySelector('#signup');
 signupRoute.addEventListener('click', () => {
-    onNavigate('/signup');
+  onNavigate('/signup');
 });
-
-window.onpopstate = () => {
-    rootDiv.innerHTML = routes[window.location.pathname];
-};
