@@ -43,6 +43,25 @@ export const Login = () => {
   buttonLogin.id = 'submitLogin';
   buttonLogin.textContent = 'Inicia Sesión';
   loginForm.appendChild(buttonLogin);
+  // firebase
+  buttonLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    // const button = document.getElementById('submitBTN').value;
+    const email = document.getElementById('emailLogin').value;
+    const password = document.getElementById('passwordLogin').value;
+    console.log('estas dentro');
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredential => {
+        console.log('ya iniciaste sesion');
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
   // Insertar el "o" del diseño
   oFromDesign.setAttribute('class', 'hr-test');
   oFromDesign.appendChild(spanSpace);

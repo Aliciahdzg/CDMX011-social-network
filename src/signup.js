@@ -43,6 +43,24 @@ export const Signup = () => {
   buttonSignup.id = 'submitBTN';
   buttonSignup.textContent = 'Regístrate';
   signupForm.appendChild(buttonSignup);
+  // Esta es la parte del firebase
+  buttonSignup.addEventListener('click', (e) => {
+    e.preventDefault();
+    // const button = document.getElementById('submitBTN').value;
+    const email = document.getElementById('emailUser').value;
+    const password = document.getElementById('passwordUser').value;
+    console.log('ya te registraste');
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredential => {
+        console.log('esta es la promesa');
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
   // Insertar el "o" del diseño
   oFromDesign.setAttribute('class', 'hr-test');
   oFromDesign.appendChild(spanSpace);
@@ -73,7 +91,7 @@ export const Signup = () => {
   return signupView;
 };
 
-const signupRoute = document.querySelector('#signup');
+/*const signupRoute = document.querySelector('#signup');
 signupRoute.addEventListener('click', () => {
   onNavigate('/signup');
-});
+});*/
