@@ -1,7 +1,7 @@
-import { Home } from './home.js';
-import { Login } from './login.js';
-import { Post } from './post.js';
-import { Signup } from './signup.js';
+import { Home } from './components/home.js';
+import { Login } from './components/login.js';
+import { Post } from './components/post.js';
+import { Signup } from './components/signup.js';
 
 const routes = {
   '/': Home,
@@ -24,7 +24,7 @@ export const onNavigate = (pathname) => {
 
 window.onload = () => {
   onNavigate('/');
-}; 
+};
 
 const component = routes[window.location.pathname];
 
