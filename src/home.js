@@ -1,4 +1,5 @@
 import { onNavigate } from './app.js';
+import { LoginForm } from './loginForm.js';
 
 export const Home = () => {
   const homeView = document.createElement('section');
@@ -8,10 +9,7 @@ export const Home = () => {
   const imgLogo = document.createElement('img');
   const imgLogoLand = document.createElement('img');
   const welcomeText = document.createElement('p');
-  const loginForm = document.createElement('form');
-  const inputMail = document.createElement('input');
-  const inputPassword = document.createElement('input');
-  const buttonLogin = document.createElement('button');
+  //Login
   const oFromDesign = document.createElement('p');
   const spanSpace = document.createElement('span');
   const googleButton = document.createElement('button');
@@ -48,30 +46,7 @@ export const Home = () => {
   welcomeText.setAttribute('class', 'welcolme-text');
   welcomeText.textContent = 'Bienvenid@ a la plataforma destinada a los amantes de plantas';
   // Inicio de la segunda seccion
-  loginForm.id = 'login';
-  secondChild.appendChild(loginForm);
-  // Primer hijo del form
-  inputMail.setAttribute('type', 'email');
-  inputMail.setAttribute('class', 'form-elements');
-  inputMail.setAttribute('placeholder', 'Correo');
-  inputMail.setAttribute('name', 'email');
-  inputMail.id = 'emailLogin';
-  loginForm.appendChild(inputMail);
-  // Segundo hijo del form 
-  inputPassword.setAttribute('type', 'password');
-  inputPassword.setAttribute('class', 'form-elements');
-  inputPassword.setAttribute('placeholder', 'Contraseña');
-  // Investigar por que el name es password-user OJO
-  inputPassword.setAttribute('name', 'password-user');
-  inputPassword.id = 'passwordLogin';
-  loginForm.appendChild(inputPassword);
-  // Tercer hijo del form enviar
-  buttonLogin.setAttribute('type', 'submit');
-  // buttonLogin.setAttribute('value', 'enviar');
-  buttonLogin.setAttribute('class', 'signup-button');
-  buttonLogin.id = 'submitLogin';
-  buttonLogin.textContent = 'Inicia Sesión';
-  loginForm.appendChild(buttonLogin);
+  secondChild.appendChild(LoginForm);
   // Insertar el "o" del diseño
   oFromDesign.setAttribute('class', 'hr-test');
   oFromDesign.appendChild(spanSpace);
