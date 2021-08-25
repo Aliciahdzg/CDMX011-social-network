@@ -15,7 +15,7 @@ export const Post = () => {
 
 
 
-  const setupPosts = data => {
+  /*const setupPosts = data => {
     if (data.length) {
       let html = '';
       data.forEach(doc => {
@@ -30,7 +30,7 @@ export const Post = () => {
     } else {
       postList.innerHTML = '<p>ENTRA PARA VER POST</p>';
     }
-  };
+  };*/
   //  Eventos
   auth.onAuthStateChanged(user => {
     if (user) {

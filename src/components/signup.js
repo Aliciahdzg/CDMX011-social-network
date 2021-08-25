@@ -1,6 +1,7 @@
 import { onNavigate } from '../app.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
+import { logo } from './logo.js';
 
 export const Signup = () => {
   const signupView = document.createElement('section');
@@ -15,6 +16,7 @@ export const Signup = () => {
   signupView.setAttribute('class', 'grid-father');
   // Section
   sectionChild.setAttribute('class', 'container');
+  signupView.appendChild(logo());
   signupView.appendChild(sectionChild);
   signupForm.id = 'signup';
   sectionChild.appendChild(signupForm);
