@@ -33,11 +33,10 @@ export function LoginForm() {
     // const button = document.getElementById('submitBTN').value;
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('passwordLogin').value;
-    console.log('estas dentro');
+    console.log('ESTE ES DE LOGINFORM');
     auth
       .signInWithEmailAndPassword(email, password)
       .then(userCredential => {
-        console.log('ya iniciaste sesion');
       })
       .catch((error) => {
       // const errorCode = error.code;
