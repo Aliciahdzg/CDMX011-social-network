@@ -3,15 +3,11 @@ import { LoginForm } from './loginForm.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
 import { redirectionregister } from './redirectionregister.js';
+import { logo } from './logo.js';
 
 export const Home = () => {
   const homeView = document.createElement('section');
-  const title = document.createElement('h1');
-  const firstChild = document.createElement('section');
   const secondChild = document.createElement('section');
-  const imgLogo = document.createElement('img');
-  const imgLogoLand = document.createElement('img');
-  const welcomeText = document.createElement('p');
   const loginForm = document.createElement('form');
   const inputMail = document.createElement('input');
   const inputPassword = document.createElement('input');
@@ -19,32 +15,10 @@ export const Home = () => {
   const spaceButtons = document.createElement('br');
   // Vista de home
   homeView.setAttribute('class', 'grid-father');
-  // Primer section
-  firstChild.setAttribute('class', 'container');
   // Segundo section
   secondChild.setAttribute('class', 'container');
-  homeView.appendChild(firstChild);
+  homeView.appendChild(logo());
   homeView.appendChild(secondChild);
-  // Titulo del Logo Landscape
-  title.textContent = 'Plantagram';
-  title.setAttribute('class', 'logo');
-  title.id = 'logo-title';
-  firstChild.appendChild(title);
-  // Imagen del portrait
-  imgLogo.src = 'images/logo.png';
-  imgLogo.alt = 'plantita';
-  imgLogo.setAttribute('class', 'image-size');
-  imgLogo.id = 'logo-img';
-  firstChild.appendChild(imgLogo);
-  // Imagen del Landscape
-  imgLogoLand.src = 'images/girls.jpg';
-  imgLogoLand.alt = 'chicas';
-  imgLogoLand.setAttribute('class', 'image-size');
-  imgLogoLand.id = 'logo-img-land';
-  firstChild.appendChild(imgLogoLand);
-  // Texto de bienvenida
-  welcomeText.setAttribute('class', 'welcolme-text');
-  welcomeText.textContent = 'Bienvenid@ a la plataforma destinada a los amantes de plantas';
   // Inicio de la segunda seccion
   loginForm.id = 'login';
   secondChild.appendChild(LoginForm());

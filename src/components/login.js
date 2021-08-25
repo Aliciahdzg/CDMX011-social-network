@@ -3,6 +3,8 @@ import { LoginForm } from './loginForm.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
 import { redirectionregister } from './redirectionregister.js';
+import { logo } from './logo.js';
+
 
 export const Login = () => {
   const loginView = document.createElement('section');
@@ -12,6 +14,7 @@ export const Login = () => {
   loginView.setAttribute('class', 'grid-father');
   // Section
   sectionChild.setAttribute('class', 'container');
+  loginView.appendChild(logo());
   loginView.appendChild(sectionChild);
   // import del loginForm
   sectionChild.appendChild(LoginForm());
