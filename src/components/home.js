@@ -1,5 +1,8 @@
-import { onNavigate } from './app.js';
+import { onNavigate } from '../app.js';
 import { LoginForm } from './loginForm.js';
+import { ButtonGoogle } from './googlebutton.js';
+import { spacebetween } from './spacebetween.js';
+import { redirectionregister } from './redirectionregister.js';
 
 export const Home = () => {
   const homeView = document.createElement('section');
@@ -9,13 +12,10 @@ export const Home = () => {
   const imgLogo = document.createElement('img');
   const imgLogoLand = document.createElement('img');
   const welcomeText = document.createElement('p');
-  //Login
-  const oFromDesign = document.createElement('p');
-  const spanSpace = document.createElement('span');
-  const googleButton = document.createElement('button');
-  const googleImg = document.createElement('img');
-  const buttonGoogleDiv = document.createElement('div');
-  const registerButton = document.createElement('button');
+  const loginForm = document.createElement('form');
+  const inputMail = document.createElement('input');
+  const inputPassword = document.createElement('input');
+  const buttonLogin = document.createElement('button');
   const spaceButtons = document.createElement('br');
   // Vista de home
   homeView.setAttribute('class', 'grid-father');
@@ -31,13 +31,13 @@ export const Home = () => {
   title.id = 'logo-title';
   firstChild.appendChild(title);
   // Imagen del portrait
-  imgLogo.src = 'logo.png';
+  imgLogo.src = 'images/logo.png';
   imgLogo.alt = 'plantita';
   imgLogo.setAttribute('class', 'image-size');
   imgLogo.id = 'logo-img';
   firstChild.appendChild(imgLogo);
   // Imagen del Landscape
-  imgLogoLand.src = 'girls.jpg';
+  imgLogoLand.src = 'images/girls.jpg';
   imgLogoLand.alt = 'chicas';
   imgLogoLand.setAttribute('class', 'image-size');
   imgLogoLand.id = 'logo-img-land';
@@ -46,38 +46,42 @@ export const Home = () => {
   welcomeText.setAttribute('class', 'welcolme-text');
   welcomeText.textContent = 'Bienvenid@ a la plataforma destinada a los amantes de plantas';
   // Inicio de la segunda seccion
-  secondChild.appendChild(LoginForm);
+  loginForm.id = 'login';
+  secondChild.appendChild(LoginForm());
+  // Primer hijo del form
+  inputMail.setAttribute('type', 'email');
+  inputMail.setAttribute('class', 'form-elements');
+  inputMail.setAttribute('placeholder', 'Correo');
+  inputMail.setAttribute('name', 'email');
+  inputMail.id = 'emailLogin';
+  loginForm.appendChild(inputMail);
+  // Segundo hijo del form 
+  inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('class', 'form-elements');
+  inputPassword.setAttribute('placeholder', 'Contraseña');
+  // Investigar por que el name es password-user OJO
+  inputPassword.setAttribute('name', 'password-user');
+  inputPassword.id = 'passwordLogin';
+  loginForm.appendChild(inputPassword);
+  // Tercer hijo del form enviar
+  buttonLogin.setAttribute('type', 'submit');
+  // buttonLogin.setAttribute('value', 'enviar');
+  buttonLogin.setAttribute('class', 'signup-button');
+  buttonLogin.id = 'submitLogin';
+  buttonLogin.textContent = 'Inicia Sesión';
+  loginForm.appendChild(buttonLogin);
   // Insertar el "o" del diseño
-  oFromDesign.setAttribute('class', 'hr-test');
-  oFromDesign.appendChild(spanSpace);
-  spanSpace.textContent = 'ó';
-  secondChild.appendChild(oFromDesign);
-  // Boton de google
-  googleButton.setAttribute('type', 'button');
-  googleButton.setAttribute('class', 'signup-google button-google');
-  // googleButton.setAttribute('class', 'button-google');
-  googleButton.id = 'registerGoogle';
-  // Imagen del logo de google
-  googleImg.src = 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg ';
-  googleButton.appendChild(googleImg);
-  buttonGoogleDiv.setAttribute('class', 'access-google');
-  buttonGoogleDiv.textContent = 'Accede con Google';
-  googleButton.appendChild(buttonGoogleDiv);
-  secondChild.appendChild(googleButton);
+  secondChild.appendChild(spacebetween());
+  secondChild.appendChild(ButtonGoogle());
   // Este es el espacio entre botones
   secondChild.appendChild(spaceButtons);
   // Este es el boton de redireccion a registro
-  registerButton.setAttribute('class', 'login-in-register');
-  registerButton.setAttribute('type', 'button');
-  registerButton.textContent = 'Registrate Aqui';
-  secondChild.appendChild(registerButton);
-  registerButton.addEventListener('click', () => {
-    onNavigate('/signup');
-  });
+  secondChild.appendChild(redirectionregister());
   return homeView;
 };
 
 const homeRoute = document.querySelector('#home');
-homeRoute.addEventListener('click', () => {
+homeRoute.addEventListener('click', (e) => {
+  e.preventDefault();
   onNavigate('/');
 });
