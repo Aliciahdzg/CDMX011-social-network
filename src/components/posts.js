@@ -1,17 +1,7 @@
-import { onNavigate } from '../app.js';
-import { navigation } from './navigation.js';
 
-export const Post = () => {
-  const postView = document.createElement('section');
-  postView.appendChild(navigation());
+export function Posts() {
   const ulpost = document.createElement('ul');
   ulpost.id = 'posts';
-  postView.appendChild(ulpost);
-  //lipost.appendChild(paragraph);
-  // Posts
-  //const postList = document.getElementById('posts');
-  //console.log(postList);
-  // Logica de los post
   const setupPosts = (data) => {
     if (data.length) {
       let html = '';
@@ -44,11 +34,5 @@ export const Post = () => {
       console.log('salgo');
     }
   });
-
-  return postView;
-};
-/*const signupRoute = document.querySelector('#post');
-signupRoute.addEventListener('click', (e) => {
-  e.preventDefault();
-  onNavigate('/post');
-});*/
+  return ulpost;
+}

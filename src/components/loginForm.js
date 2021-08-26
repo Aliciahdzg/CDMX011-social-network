@@ -40,7 +40,7 @@ export function LoginForm() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(userCredential => {
-        onNavigate('/post')
+        onNavigate('/feed');
       })
       .catch((error) => {
         // const errorCode = error.code;

@@ -8,8 +8,6 @@ export function navigation() {
   const apost = document.createElement('a');
   // Aqui comienza la barra de navegacion
   // Redireccion a post
-  //apost.href = '#';
-  apost.id = 'postt';
   apost.textContent = 'Crear POST';
   lipost.appendChild(apost);
   ul.appendChild(lipost);
