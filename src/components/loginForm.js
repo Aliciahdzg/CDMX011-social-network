@@ -1,3 +1,5 @@
+import { onNavigate } from "../app.js";
+
 export function LoginForm() {
   const loginForm = document.createElement('form');
   const inputMail = document.createElement('input');
@@ -29,6 +31,7 @@ export function LoginForm() {
   loginForm.appendChild(buttonLogin);
   // firebase
   buttonLogin.addEventListener('click', (e) => {
+    console.log('ESTE ES DE LOGINFORM')
     e.preventDefault();
     // const button = document.getElementById('submitBTN').value;
     const email = document.getElementById('emailLogin').value;
@@ -37,9 +40,10 @@ export function LoginForm() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(userCredential => {
+        onNavigate('/post')
       })
       .catch((error) => {
-      // const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
       });

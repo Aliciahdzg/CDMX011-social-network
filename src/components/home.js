@@ -54,8 +54,8 @@ export const Home = () => {
   return homeView;
 };
 
-const homeRoute = document.querySelector('#home');
+/*const homeRoute = document.querySelector('#home');
 homeRoute.addEventListener('click', (e) => {
   e.preventDefault();
   onNavigate('/');
-});
+});*/

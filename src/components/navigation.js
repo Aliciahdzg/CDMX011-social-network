@@ -8,9 +8,9 @@ export function navigation() {
   const apost = document.createElement('a');
   // Aqui comienza la barra de navegacion
   // Redireccion a post
-  apost.href = '#';
+  //apost.href = '#';
   apost.id = 'postt';
-  apost.textContent = 'AQUI ENTRAS A POST';
+  apost.textContent = 'Crear POST';
   lipost.appendChild(apost);
   ul.appendChild(lipost);
   // Boton de cerrar sesión
