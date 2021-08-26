@@ -6,7 +6,7 @@ formSignUp.addEventListener('click', (e) => {
   // const button = document.getElementById('submitBTN').value;
   const email = document.getElementById('emailUser').value;
   const password = document.getElementById('passwordUser').value;
-  console.log('ya te registraste');
+ console.log('ya te registraste');
 
   auth
     .createUserWithEmailAndPassword(email, password)

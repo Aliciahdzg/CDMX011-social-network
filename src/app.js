@@ -1,13 +1,13 @@
 import { Home } from './components/home.js';
 import { Login } from './components/login.js';
-import { Post } from './components/post.js';
+import { Feed } from './components/feed.js';
 import { Signup } from './components/signup.js';
 
 const routes = {
   '/': Home,
   '/login': Login,
   '/signup': Signup,
-  '/post': Post,
+  '/feed': Feed,
 };
 
 const rootDiv = document.getElementById('root');
@@ -25,6 +25,10 @@ export const onNavigate = (pathname) => {
 window.onload = () => {
   onNavigate('/');
 };
+
+ //rootDiv.addEventListener('onchange', () => {
+// location.reload();
+//}); 
 
 const component = routes[window.location.pathname];
 
