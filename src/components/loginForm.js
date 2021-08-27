@@ -31,7 +31,7 @@ export function LoginForm() {
   loginForm.appendChild(buttonLogin);
   // firebase
   buttonLogin.addEventListener('click', (e) => {
-    console.log('ESTE ES DE LOGINFORM')
+    console.log('ESTE ES DE LOGINFORM');
     e.preventDefault();
     // const button = document.getElementById('submitBTN').value;
     const email = document.getElementById('emailLogin').value;
