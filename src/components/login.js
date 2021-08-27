@@ -27,8 +27,8 @@ export const Login = () => {
   return loginView;
 };
 
-/*const loginRoute = document.querySelector('#login');
+/* const loginRoute = document.querySelector('#login');
 loginRoute.addEventListener('click', (e) => {
   e.preventDefault();
   onNavigate('/login');
-});*/
+}); */
