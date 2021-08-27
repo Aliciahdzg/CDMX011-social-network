@@ -7,27 +7,25 @@ export function Posts() {
       let html = '';
       data.forEach((doc) => {
         const post = doc.data();
-        console.log(post.description);
         const li = `
         <li class= "box-posts">
         <p class = "text-post" >${post.description}</p><li>
         `;
         html += li;
       });
-      console.log(html);
       ulpost.innerHTML = html;
     } else {
       ulpost.innerHTML = '<p>ENTRA PARA VER POST</p>';
     }
   };
   //  Eventos
+  // eslint-disable-next-line no-undef
   auth.onAuthStateChanged((user) => {
     if (user) {
-      console.log('ESTAS DENTRO')
+      // eslint-disable-next-line no-undef
       fs.collection('posts')
         .get()
         .then((snapshot) => {
-          console.log(snapshot);
           setupPosts(snapshot.docs);
         });
     } else {

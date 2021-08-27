@@ -1,4 +1,3 @@
-import { onNavigate } from '../app.js';
 import { LoginForm } from './loginForm.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
@@ -53,9 +52,3 @@ export const Home = () => {
   secondChild.appendChild(redirectionregister());
   return homeView;
 };
-
-/*const homeRoute = document.querySelector('#home');
-homeRoute.addEventListener('click', (e) => {
-  e.preventDefault();
-  onNavigate('/');
-});*/

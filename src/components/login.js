@@ -1,4 +1,3 @@
-import { onNavigate } from '../app.js';
 import { LoginForm } from './loginForm.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
@@ -26,9 +25,3 @@ export const Login = () => {
   sectionChild.appendChild(redirectionregister());
   return loginView;
 };
-
-/* const loginRoute = document.querySelector('#login');
-loginRoute.addEventListener('click', (e) => {
-  e.preventDefault();
-  onNavigate('/login');
-}); */

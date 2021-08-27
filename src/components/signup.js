@@ -75,9 +75,3 @@ export const Signup = () => {
   });
   return signupView;
 };
-
-/* const signupRoute = document.querySelector('#signup');
-signupRoute.addEventListener('click', (e) => {
-  e.preventDefault();
-  onNavigate('/signup');
-}); */
