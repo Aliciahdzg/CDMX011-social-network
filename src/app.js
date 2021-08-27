@@ -22,14 +22,6 @@ export const onNavigate = (pathname) => {
   rootDiv.appendChild(routes[pathname]());
 };
 
-// window.onload = () => {
-//   onNavigate('/');
-// };
-
-// rootDiv.addEventListener('onchange', () => {
-// location.reload();
-// });
-
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
