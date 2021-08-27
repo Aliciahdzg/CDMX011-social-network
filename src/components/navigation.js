@@ -2,18 +2,12 @@ import { signoutbtn } from './signoutbtn.js';
 
 export function navigation() {
   const navbar = document.createElement('nav');
-  const ul = document.createElement('ul');
-  const lipost = document.createElement('li');
-  const lisignout = document.createElement('li');
-  const apost = document.createElement('a');
+  const logonav = document.createElement('h1');
   // Aqui comienza la barra de navegacion
-  // Redireccion a post
-  apost.textContent = 'Crear POST';
-  lipost.appendChild(apost);
-  ul.appendChild(lipost);
+  logonav.classList.add('logo-navbar');
+  logonav.textContent = 'Plantagram';
+  navbar.appendChild(logonav);
   // Boton de cerrar sesión
-  lisignout.appendChild(signoutbtn());
-  ul.appendChild(lisignout);
-  navbar.appendChild(ul);
+  navbar.appendChild(signoutbtn());
   return navbar;
 }

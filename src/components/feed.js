@@ -5,6 +5,7 @@ import { Posts } from './posts.js';
 export const Feed = () => {
   const postView = document.createElement('section');
   postView.appendChild(navigation());
+  postView.classList.add('background-feed');
   const ulpost = document.createElement('ul');
   ulpost.id = 'posts';
   postView.appendChild(Posts());

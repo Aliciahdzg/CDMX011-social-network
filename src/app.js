@@ -22,9 +22,9 @@ export const onNavigate = (pathname) => {
   rootDiv.appendChild(routes[pathname]());
 };
 
-window.onload = () => {
-  onNavigate('/');
-};
+//window.onload = () => {
+ // onNavigate(routes[window.location.pathname]);
+//};
 
  //rootDiv.addEventListener('onchange', () => {
 // location.reload();
