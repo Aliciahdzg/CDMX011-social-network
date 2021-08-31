@@ -7,12 +7,17 @@ export function modalPost() {
         <section>
             <img src=> 
         </section>
-        <textarea class="modal-grow" placeholder="Publica tus ideas aqui"></textarea>
+        <textarea class="modal-grow" placeholder="Publica tus ideas aqui" id="textPost"></textarea>
         <section class="background-button-modal">
-            <button class="signup-button" type="button">Publicar</button>
+            <button class="signup-button" type="submit" id="publishPost" >Publicar</button>
         </section>
     </section>`;
   modal.innerHTML = contentModal;
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
   return modal;
 //   const modalSection = document.createElement('section');
 //   const modalContentback = document.createElement('section');
