@@ -11,6 +11,9 @@ export function ButtonGoogle() {
   googleButton.id = 'registerGoogle';
   googleButton.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account',
+    });
     auth.signInWithPopup(provider)
       .then(result => {
         onNavigate('/feed');

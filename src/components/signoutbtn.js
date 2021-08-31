@@ -1,4 +1,4 @@
-import { onNavigate } from "../app.js";
+import { onNavigate } from '../app.js';
 
 export function signoutbtn() {
   const signOutBtn = document.createElement('button');
