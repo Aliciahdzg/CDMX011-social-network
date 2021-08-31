@@ -7,9 +7,9 @@ export function modalPost() {
         <section>
             <img src=> 
         </section>
-        <input type="text" placeholder="Publica tus ideas aqui">
-        <section>
-            <button type="button">Publicar</button>
+        <textarea class="modal-grow" placeholder="Publica tus ideas aqui"></textarea>
+        <section class="background-button-modal">
+            <button class="signup-button" type="button">Publicar</button>
         </section>
     </section>`;
   modal.innerHTML = contentModal;
