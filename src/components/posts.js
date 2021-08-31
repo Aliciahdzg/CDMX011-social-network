@@ -15,7 +15,8 @@ export function Posts() {
       });
       ulpost.innerHTML = html;
     } else {
-      ulpost.innerHTML = '<p>ENTRA PARA VER POST</p>';
+      ulpost.innerHTML = '<p>ENTRA PARA VER POST ESTE ES EL QUE NO SALE</p>';
+      console.log('no estas logueado');
     }
   };
   //  Eventos
@@ -29,7 +30,7 @@ export function Posts() {
           setupPosts(snapshot.docs);
         });
     } else {
-      console.log('salgo');
+      ulpost.innerHTML = '<p>ENTRA PARA VER POST</p>';
     }
   });
   return ulpost;
