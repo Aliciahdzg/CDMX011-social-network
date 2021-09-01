@@ -1,22 +1,20 @@
-// aqui exportaras las funciones que necesites
-
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
+const savePost = (description) => {
+  fs.collection('posts').doc().set({
+    description,
+  });
 };
 
-const database = firebase.database();
-
-function save() {
-  const description = document.getElementById('textPost').value;
-  database.collection('posts').doc().set({
-    description: description
-  });
-  console.log(description);
-}
-//boton de publicar
-const publishPost = document.getElementById('publishPost');
-publishPost.addEventListener('click', save());
+const publishPost = document.querySelector('#form-post');
+publishPost.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const closeModal = document.querySelector('#modalshow');
+  closeModal.style.display = 'none';
+  const description = document.getElementById('textPost');
+  await savePost(description.value);
+  publishPost.reset();
+  description.focus();
+});
+console.log(publishPost);
 
 // let name = document.getElementById('name').value;
 // let email = document.getElementById('emailUser').value;

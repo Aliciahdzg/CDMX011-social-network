@@ -165,7 +165,7 @@ ul {
   font-family: 'Kaushan Script', cursive;
   color: #367a58de;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.404);
-  margin: 2% 0 1% 0;
+  margin: 1%;
   font-size: 2.3rem;
   font-weight: lighter;
   -webkit-text-stroke: 1px #275a559a;
@@ -325,8 +325,12 @@ ul {
     flex-direction: row;
     height: 100vh;
   }
+  .logo-navbar{
+    font-size: 3rem;
+  }
+
   .sign-out-button{
-    width:6%;
+    width:4%;
   }
   #logo-img {
     display: none;

@@ -3,15 +3,15 @@ export function modalPost() {
   modal.id = 'modalshow';
   modal.classList.add('modal');
   const contentModal = `
-    <section class='modal-content'>  
+    <form id ='form-post' class='modal-content'>  
         <section>
-            <img src=> 
+            <img src="#"> 
         </section>
         <textarea class="modal-grow" placeholder="Publica tus ideas aqui" id="textPost"></textarea>
         <section class="background-button-modal">
             <button class="signup-button" type="submit" id="publishPost" >Publicar</button>
         </section>
-    </section>`;
+    </form>`;
   modal.innerHTML = contentModal;
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -19,6 +19,7 @@ export function modalPost() {
     }
   });
   return modal;
+
 //   const modalSection = document.createElement('section');
 //   const modalContentback = document.createElement('section');
 //   const modalContentinput = document.createElement('input');
@@ -28,3 +29,5 @@ export function modalPost() {
 //   modalSection.appendChild(modalContentback);
 //   modalSection.appendChild(modalContentinput);
 }
+
+
