@@ -5,10 +5,13 @@ export function Posts() {
   const deletePost = (id) => {
     fs.collection('posts').doc(id).delete();
   };
+  const editPost = (id) => {
+    fs.collection('posts').doc(id).get();
+  };
   const getPosts = (callbaack) => {
     fs.collection('posts').onSnapshot(callbaack);
   };
-  window.addEventListener('DOMContentLoaded', async () => {
+  window.addEventListener('DOMContentLoaded', async() => {
     getPosts((data) => {
       ulpost.innerHTML = '';
       data.forEach((doc) => {
@@ -17,33 +20,31 @@ export function Posts() {
         ulpost.innerHTML += `
         <li class= "box-posts">
         <p class = "text-post" >${post.description}</p>
+        <button class = "btnEdit" data-id ='${post.id}'> Editar </button>
         <button class = "btnDelete" data-id ='${post.id}'> Eliminar </button>
         <li>
         `;
         const btnsDelete = document.querySelectorAll('.btnDelete');
         btnsDelete.forEach((btn) => {
-          btn.addEventListener('click', async (e) => {
+          btn.addEventListener('click', async(e) => {
             await deletePost(e.target.dataset.id);
             console.log('este es el boton');
           });
         });
+        /* const btnsEdit = document.createElement.querySelectorAll('.btnEdit');
+         btnsEdit.forEach((button) => {
+           button.addEventListener('click', async(event) => {
+             await editPost(event.target.dataset.id);
+             const formPost = document.getElementById('formPost');
+             const textPost = document.getElementById('textPost');
+             // primero abrir el modal
+             formPost[textPost].value = doc.data().description;
+             console.log(formPost[textPost].value = doc.data().description);
+           });
+         });*/
       });
     });
   });
-/*   const setupPosts = (data) => {
-    if (data.length) {
-      let html = '';
-      data.forEach((doc) => {
-        const post = doc.data();
-        const li = `
-        <li class= "box-posts">
-        <p class = "text-post" >${post.description}</p><li>
-        `;
-        html += li;
-      });
-      ulpost.innerHTML = html;
-    }
-  }; */
   //  Eventos
   // eslint-disable-next-line no-undef
   auth.onAuthStateChanged((user) => {
