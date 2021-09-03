@@ -1,5 +1,5 @@
 import { navigation } from './navigation.js';
-import { Posts } from './posts.js';
+import { Posts } from './CRUDposts.js';
 import { modalPost } from './modalpost.js';
 
 export const Feed = () => {
@@ -17,8 +17,6 @@ export const Feed = () => {
   PostPublishBox.appendChild(PostPublish);
   postView.appendChild(PostPublishBox);
   postView.classList.add('background-feed');
-  const ulpost = document.createElement('ul');
-  ulpost.id = 'posts';
   postView.appendChild(Posts());
   postView.insertBefore(modalPost(), PostPublishBox);
   return postView;

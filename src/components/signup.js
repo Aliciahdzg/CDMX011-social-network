@@ -58,9 +58,7 @@ export const Signup = () => {
     console.log('ya te registraste');
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(userCredential => {
-        console.log('esta es la promesa');
-      })
+      .then(userCredential => {})
       .catch((error) => {
         // const errorCode = error.code;
         const errorMessage = error.message;
@@ -78,7 +76,7 @@ export const Signup = () => {
   sectionChild.appendChild(loginButton);
   loginButton.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/login');
+    onNavigate('/');
   });
   return signupView;
 };

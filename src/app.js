@@ -1,11 +1,11 @@
-import { Home } from './components/home.js';
+// import { Home } from './components/home.js';
 import { Login } from './components/login.js';
 import { Feed } from './components/feed.js';
 import { Signup } from './components/signup.js';
 
 const routes = {
-  '/': Home,
-  '/login': Login,
+  // '/': Home,
+  '/': Login,
   '/signup': Signup,
   '/feed': Feed,
 };
