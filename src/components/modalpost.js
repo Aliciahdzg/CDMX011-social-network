@@ -19,15 +19,4 @@ export function modalPost() {
     }
   });
   return modal;
-
-//   const modalSection = document.createElement('section');
-//   const modalContentback = document.createElement('section');
-//   const modalContentinput = document.createElement('input');
-//   const modalContentbutton = document.createElement('button');
-//   modalSection.id = 'modalpost';
-//   modalSection.className = 'modal';
-//   modalSection.appendChild(modalContentback);
-//   modalSection.appendChild(modalContentinput);
 }
-
-

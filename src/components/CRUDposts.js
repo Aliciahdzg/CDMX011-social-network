@@ -2,14 +2,19 @@ export function Posts() {
   const ulpost = document.createElement('ul');
   ulpost.id = 'posts';
   ulpost.className = ('post-list');
+  const savePost = (description) => {
+    fs.collection('posts').doc().set({
+      description,
+    });
+  };
   const deletePost = (id) => {
     fs.collection('posts').doc(id).delete();
   };
   const editPost = (id) => {
     fs.collection('posts').doc(id).get();
   };
-  const getPosts = (callbaack) => {
-    fs.collection('posts').onSnapshot(callbaack);
+  const getPosts = (callback) => {
+    fs.collection('posts').onSnapshot(callback);
   };
   window.addEventListener('DOMContentLoaded', async() => {
     getPosts((data) => {
@@ -24,11 +29,21 @@ export function Posts() {
         <button class = "btnDelete" data-id ='${post.id}'> Eliminar </button>
         <li>
         `;
+
+        const publishPost = document.querySelector('#form-post');
+        publishPost.addEventListener('submit', async(e) => {
+          e.preventDefault();
+          const closeModal = document.querySelector('#modalshow');
+          closeModal.style.display = 'none';
+          const description = document.getElementById('textPost');
+          await savePost(description.value);
+          publishPost.reset();
+          description.focus();
+        });
         const btnsDelete = document.querySelectorAll('.btnDelete');
         btnsDelete.forEach((btn) => {
           btn.addEventListener('click', async(e) => {
             await deletePost(e.target.dataset.id);
-            console.log('este es el boton');
           });
         });
         /* const btnsEdit = document.createElement.querySelectorAll('.btnEdit');
@@ -54,6 +69,7 @@ export function Posts() {
         .get()
         .then((snapshot) => {
           getPosts(snapshot.docs);
+          //Feed();
         });
     } else {
       ulpost.innerHTML = '<p>ENTRA PARA VER POST</p>';
