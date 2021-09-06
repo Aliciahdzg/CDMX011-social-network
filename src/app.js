@@ -1,10 +1,10 @@
-// import { Home } from './components/home.js';
 import { Login } from './components/login.js';
 import { Feed } from './components/feed.js';
 import { Signup } from './components/signup.js';
+import { auth } from './firebase.js';
+import { Posts } from './components/CRUDposts.js';
 
 const routes = {
-  // '/': Home,
   '/': Login,
   '/signup': Signup,
   '/feed': Feed,
@@ -29,3 +29,9 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component());
+
+auth.onAuthStateChanged((user) => {
+  if (!user) {
+    onNavigate('/');
+  }
+});

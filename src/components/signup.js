@@ -2,6 +2,7 @@ import { onNavigate } from '../app.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
 import { logo } from './logo.js';
+import { auth } from '../firebase.js';
 
 export const Signup = () => {
   const signupView = document.createElement('section');
