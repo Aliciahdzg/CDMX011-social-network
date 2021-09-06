@@ -38,6 +38,7 @@ export function LoginForm() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
+        let user = userCredential.user;
         onNavigate('/feed');
       })
       .catch((error) => {

@@ -33,5 +33,10 @@ rootDiv.appendChild(component());
 auth.onAuthStateChanged((user) => {
   if (!user) {
     onNavigate('/');
+  } else {
+    const userUID = user.uid;
+    const email = user.email;
+    const name = user.displayName;
+    console.log(userUID, email, name);
   }
 });
