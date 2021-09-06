@@ -22,7 +22,7 @@ export const Signup = () => {
   signupView.appendChild(sectionChild);
   signupForm.id = 'signup';
   sectionChild.appendChild(signupForm);
-  //Nombre de usuario
+  // Nombre de usuario
   nameInput.id = 'name';
   nameInput.className = 'form-elements';
   nameInput.placeholder = 'Nombre';

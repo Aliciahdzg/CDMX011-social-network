@@ -1,10 +1,10 @@
 import {
   deletePost,
-  editPost,
   onGetPosts,
   savePost,
   updatePost,
   getPost,
+  user,
 } from '../firebase.js';
 
 export function Posts() {
@@ -12,7 +12,7 @@ export function Posts() {
   divPost.id = 'posts';
   divPost.className = ('post-list');
 
-  let estatus = false;
+  let editStatus = false;
   let idd = '';
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -28,46 +28,51 @@ export function Posts() {
         <button class = "btnDelete" data-id ='${post.id}'> Eliminar </button>
         </section>
         `;
-
-        const modalBtn = document.querySelector('#form-post');
-        modalBtn.addEventListener('submit', async(e) => {
-          e.preventDefault();
-          const closeModal = document.querySelector('#modalshow');
-          closeModal.style.display = 'none';
-          const description = document.getElementById('textPost');
-          if (!estatus) {
-            await savePost(description.value);
-          } else {
-            await updatePost(idd, {
-              description: description.value,
-            });
-          }
-          description.focus();
-        });
-
-        const btnsDelete = document.querySelectorAll('.btnDelete');
-        btnsDelete.forEach((btn) => {
-          btn.addEventListener('click', async(e) => {
-            await deletePost(e.target.dataset.id);
+      });
+      const publishBtn = document.querySelector('#publishPost');
+      const modalBtn = document.querySelector('#form-post');
+      modalBtn.addEventListener('submit', async(e) => {
+        e.preventDefault();
+        const closeModal = document.querySelector('#modalshow');
+        closeModal.style.display = 'none';
+        const description = document.getElementById('textPost');
+        if (!editStatus) {
+          await savePost(description.value);
+        } else {
+          await updatePost(idd, {
+            description: description.value,
           });
-        });
-        const editModal = document.getElementById('modalshow');
-        const btnsEdit = document.querySelectorAll('.btnEdit');
-        btnsEdit.forEach((btn) => {
-          btn.addEventListener('click', async(e) => {
-            const docEdit = await getPost(e.target.dataset.id);
-            const postEdit = docEdit.data();
+          editStatus = false;
+          publishBtn.innerText = 'Publicar';
+          idd = '';
+        }
+        description.focus();
+        modalBtn.reset();
+      });
 
-            estatus = true;
-            idd = docEdit.id;
-            const textPost = document.querySelector('#textPost');
-            editModal.style.display = 'flex';
-            textPost.value = postEdit.description;
-            modalBtn.innerText = 'Actualizar';
-          });
+      const btnsDelete = document.querySelectorAll('.btnDelete');
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', async(e) => {
+          await deletePost(e.target.dataset.id);
+        });
+      });
+      const editModal = document.getElementById('modalshow');
+      const btnsEdit = document.querySelectorAll('.btnEdit');
+      btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', async(e) => {
+          const docEdit = await getPost(e.target.dataset.id);
+          const postEdit = docEdit.data();
+
+          editStatus = true;
+          idd = docEdit.id;
+          const textPost = document.querySelector('#textPost');
+          editModal.style.display = 'flex';
+          textPost.value = postEdit.description;
+          publishBtn.innerText = 'Actualizar';
         });
       });
     });
   });
+
   return divPost;
 }

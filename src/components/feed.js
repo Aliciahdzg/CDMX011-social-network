@@ -4,8 +4,10 @@ import { modalPost } from './modalpost.js';
 
 export const Feed = () => {
   const postView = document.createElement('section');
+  const welcome = document.createElement('h2');
   const PostPublish = document.createElement('button');
   const PostPublishBox = document.createElement('div');
+  welcome.textContent = '¡Bienvenidx!';
   postView.appendChild(navigation());
   PostPublishBox.className = 'post-publish-box';
   PostPublish.textContent = 'Publica tus ideas aqui';
@@ -14,6 +16,7 @@ export const Feed = () => {
     const modal = document.querySelector('#modalshow');
     modal.style.display = 'flex';
   });
+  postView.appendChild(welcome);
   PostPublishBox.appendChild(PostPublish);
   postView.appendChild(PostPublishBox);
   postView.classList.add('background-feed');

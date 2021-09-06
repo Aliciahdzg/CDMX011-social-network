@@ -1,16 +1,3 @@
-import { onNavigate } from './app.js';
-
-export {
-  deletePost,
-  editPost,
-  onGetPosts,
-  savePost,
-  auth,
-  fs,
-  updatePost,
-  getPost,
-};
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCePjssRyoR6G8wuu7NbwopYolEZvL5IVw',
@@ -25,19 +12,22 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const fs = firebase.firestore();
+const user = () => {
+  return firebase.auth().currentUser;
+};
 
-const savePost = (description) => {
-  if (description !== '') {
-    fs.collection('posts').doc().set({
-      description,
-    });
-  }
+const savePost = (description, userID) => {
+  fs.collection('posts').doc().set({
+    description,
+    uid: [
+      user.email,
+      user.displayName,
+    ],
+    likes: [],
+  });
 };
 const deletePost = (id) => {
   fs.collection('posts').doc(id).delete();
-};
-const editPost = (id) => {
-  fs.collection('posts').doc(id).get();
 };
 const onGetPosts = (callback) => {
   fs.collection('posts').onSnapshot(callback);
@@ -45,4 +35,15 @@ const onGetPosts = (callback) => {
 const updatePost = (id, updatedPost) => {
   fs.collection('posts').doc(id).update(updatedPost);
 };
-const getPost = (id) => { return fs.collection.doc(id).get(); };
+const getPost = (id) => { return fs.collection('posts').doc(id).get(); };
+
+export {
+  deletePost,
+  onGetPosts,
+  savePost,
+  auth,
+  fs,
+  updatePost,
+  getPost,
+  user,
+};
