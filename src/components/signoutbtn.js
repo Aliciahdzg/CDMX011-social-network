@@ -1,4 +1,5 @@
 import { onNavigate } from '../app.js';
+import { auth } from '../firebase.js';
 
 export function signoutbtn() {
   const signOutBtn = document.createElement('img');

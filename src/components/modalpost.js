@@ -9,7 +9,7 @@ export function modalPost() {
         </section>
         <textarea class="modal-grow" placeholder="Publica tus ideas aqui" id="textPost"></textarea>
         <section class="background-button-modal">
-            <button class="signup-button" type="submit" id="publishPost" >Publicar</button>
+            <button class="signup-button" type="submit" id="publishPost">Publicar</button>
         </section>
     </form>`;
   modal.innerHTML = contentModal;

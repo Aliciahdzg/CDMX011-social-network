@@ -1,4 +1,5 @@
 import { onNavigate } from '../app.js';
+import { auth } from '../firebase.js';
 
 export function ButtonGoogle() {
   const googleButton = document.createElement('button');

@@ -1,4 +1,5 @@
-import { onNavigate } from "../app.js";
+import { onNavigate } from '../app.js';
+import { auth } from '../firebase.js';
 
 export function LoginForm() {
   const loginForm = document.createElement('form');
@@ -14,7 +15,7 @@ export function LoginForm() {
   inputMail.setAttribute('name', 'email');
   inputMail.id = 'emailLogin';
   loginForm.appendChild(inputMail);
-  // Segundo hijo del form 
+  // Segundo hijo del form
   inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('class', 'form-elements');
   inputPassword.setAttribute('placeholder', 'Contraseña');
@@ -36,7 +37,7 @@ export function LoginForm() {
     const password = document.getElementById('passwordLogin').value;
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(userCredential => {
+      .then((userCredential) => {
         onNavigate('/feed');
       })
       .catch((error) => {
