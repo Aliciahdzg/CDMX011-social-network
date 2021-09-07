@@ -1,13 +1,13 @@
 import { navigation } from './navigation.js';
 import { Posts } from './CRUDposts.js';
 import { modalPost } from './modalpost.js';
+import { user } from '../firebase.js';
 
 export const Feed = () => {
   const postView = document.createElement('section');
   const welcome = document.createElement('h2');
   const PostPublish = document.createElement('button');
   const PostPublishBox = document.createElement('div');
-  welcome.textContent = '¡Bienvenidx!';
   postView.appendChild(navigation());
   PostPublishBox.className = 'post-publish-box';
   PostPublish.textContent = 'Publica tus ideas aqui';

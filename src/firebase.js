@@ -16,12 +16,14 @@ const user = () => {
   return firebase.auth().currentUser;
 };
 
-const savePost = (description, userID) => {
+const savePost = (description) => {
+  console.log(user());
+  const callingUser = user();
   fs.collection('posts').doc().set({
     description,
     uid: [
-      user.email,
-      user.displayName,
+      callingUser.email,
+      callingUser.displayName,
     ],
     likes: [],
   });
