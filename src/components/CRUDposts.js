@@ -23,11 +23,12 @@ export function Posts() {
         post.id = doc.id;
         divPost.innerHTML += `
         <section class= "box-posts">
-        <p class = "text-post" >${post.description}</p>
-        <button class = "btnEdit" data-id ='${post.id}'> Editar </button>
-        <button class = "btnDelete" data-id ='${post.id}'> Eliminar </button>
+        <p> ${user.displayName}</p>
+        <p class = "text-post" >${post.description}</p> 
+          <img src= "/images/editarazul.jpeg" type= "button" class = "btnEdit sign-out-button" data-id ='${post.id}'>
+          <img src= "/images/boterojo.jpeg" type= "button" class = " btnDelete sign-out-button" data-id ='${post.id}'>
         </section>
-        `;
+        `; console.log(user.email);
       });
       const publishBtn = document.querySelector('#publishPost');
       const modalBtn = document.querySelector('#form-post');
@@ -52,8 +53,11 @@ export function Posts() {
 
       const btnsDelete = document.querySelectorAll('.btnDelete');
       btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', async(e) => {
-          await deletePost(e.target.dataset.id);
+        btn.addEventListener('click', async (e) => {
+          let result = confirm('¿Quieres borrar este post?');
+          if (result === true) {
+            await deletePost(e.target.dataset.id);
+          }
         });
       });
       const editModal = document.getElementById('modalshow');
