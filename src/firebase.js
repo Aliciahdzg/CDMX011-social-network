@@ -13,11 +13,12 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const fs = firebase.firestore();
 const user = () => {
-  return firebase.auth().currentUser;
+  const userID = firebase.auth().currentUser;
+  console.log(userID);
+  return userID;
 };
 
 const savePost = (description) => {
-  console.log(user());
   const callingUser = user();
   fs.collection('posts').doc().set({
     description,

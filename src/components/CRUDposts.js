@@ -19,16 +19,26 @@ export function Posts() {
     onGetPosts((data) => {
       divPost.innerHTML = '';
       data.forEach((doc) => {
+        const userInfo = user();
+        console.log(userInfo.displayName);
         const post = doc.data();
         post.id = doc.id;
         divPost.innerHTML += `
         <section class= "box-posts">
-        <p> ${user.displayName}</p>
-        <p class = "text-post" >${post.description}</p> 
-          <img src= "/images/editarazul.jpeg" type= "button" class = "btnEdit sign-out-button" data-id ='${post.id}'>
-          <img src= "/images/boterojo.jpeg" type= "button" class = " btnDelete sign-out-button" data-id ='${post.id}'>
+         <p> ${user.displayName}</p>
+         <p class = "text-post" >${post.description}</p>
+         <section class="button-container">
+           <section class="button-container-left">
+            <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete">
+           </section>
+           <section class="button-container-right">
+            <img src= "/images/editarazul.jpeg" type= "button" class = "btnEdit btnEditDelete" data-id ='${post.id}'>
+            <img src= "/images/boterojo.jpeg" type= "button" class = "btnDelete btnEditDelete" data-id ='${post.id}'>
+           </section>
+          </section>
         </section>
-        `; console.log(user.email);
+        `;
+        console.log(user.email);
       });
       const publishBtn = document.querySelector('#publishPost');
       const modalBtn = document.querySelector('#form-post');
@@ -53,7 +63,7 @@ export function Posts() {
 
       const btnsDelete = document.querySelectorAll('.btnDelete');
       btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
+        btn.addEventListener('click', async(e) => {
           let result = confirm('¿Quieres borrar este post?');
           if (result === true) {
             await deletePost(e.target.dataset.id);

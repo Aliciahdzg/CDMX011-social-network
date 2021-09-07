@@ -32,10 +32,35 @@ nav {
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
-ul {
+.button-container {
   display: flex;
   flex-direction: row;
-  margin: 1rem 0px 1rem 0px;
+  background: #F5F5F5;
+}
+
+.button-container-left {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  float: left;
+  cursor: pointer;
+  width: 50%;
+  margin: 0 0.3rem;
+}
+
+.button-container-right {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  float: right;
+  width: 50%;
+  justify-content: right;
+  margin: 0 0.3rem;
+}
+
+.btnEditDelete {
+  width: 15%;
+  margin: 0.3rem 0.3rem;
 }
 
 .access-google {
@@ -45,15 +70,17 @@ ul {
   flex: auto;
   padding-right: 3rem;
 }
+
 .background-button-modal {
-  background-color: #F5F5F5 ;
+  background-color: #F5F5F5;
   width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
   height: 15%;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .button-google {
   display: flex;
   flex-direction: row;
@@ -193,7 +220,9 @@ ul {
   height: 70%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 8px 8px 8px 8px;
+  padding: 0;
 }
+
 .modal-grow {
   flex-grow: 1;
   flex-grow: 1;
@@ -205,6 +234,7 @@ ul {
   color: #2A4C8C;
   font-weight: medium;
 }
+
 .post-list {
   display: flex;
   flex-direction: column;
@@ -233,15 +263,14 @@ ul {
 }
 
 .show {
-  display:flex;
+  display: flex;
 }
 
 .sign-out-button {
   cursor: pointer;
   margin: 0 0.5rem;
-  display:flex;
-  width:10%;
-
+  display: flex;
+  width: 10%;
 }
 
 .signup-button {
@@ -325,12 +354,11 @@ ul {
     flex-direction: row;
     height: 100vh;
   }
-  .logo-navbar{
+  .logo-navbar {
     font-size: 3rem;
   }
-
-  .sign-out-button{
-    width:4%;
+  .sign-out-button {
+    width: 4%;
   }
   #logo-img {
     display: none;
@@ -341,7 +369,6 @@ ul {
   #logo-title {
     display: flex;
   }
-
 }
 
 @media (orientation: portrait) {
