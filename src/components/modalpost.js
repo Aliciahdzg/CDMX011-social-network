@@ -4,9 +4,9 @@ export function modalPost() {
   modal.classList.add('modal');
   const contentModal = `
     <form id ='form-post' class='modal-content'>  
-        <section>
+        <!--<section>
             <img src="#"> 
-        </section>
+        </section>-->
         <textarea class="modal-grow" placeholder="Publica tus ideas aqui" id="textPost"></textarea>
         <section class="background-button-modal">
             <button class="signup-button" type="submit" id="publishPost">Publicar</button>

@@ -12,8 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const fs = firebase.firestore();
-const user = () => {
-  return firebase.auth().currentUser;
+const user = () => {return firebase.auth().currentUser;
 };
 
 const savePost = (description) => {
