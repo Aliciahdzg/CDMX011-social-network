@@ -17,7 +17,6 @@ const user = () => {
 };
 
 const savePost = (description) => {
-  console.log(user());
   const callingUser = user();
   fs.collection('posts').doc().set({
     description,
@@ -28,16 +27,12 @@ const savePost = (description) => {
     likes: [],
   });
 };
-const deletePost = (id) => {
-  fs.collection('posts').doc(id).delete();
+const deletePost = (id) => fs.collection('posts').doc(id).delete();
+const onGetPosts = (callback) => fs.collection('posts').onSnapshot(callback);
+const updatePost = (id, updatedPost) => fs.collection('posts').doc(id).update(updatedPost);
+const getPost = (id) => {
+  return fs.collection('posts').doc(id).get();
 };
-const onGetPosts = (callback) => {
-  fs.collection('posts').onSnapshot(callback);
-};
-const updatePost = (id, updatedPost) => {
-  fs.collection('posts').doc(id).update(updatedPost);
-};
-const getPost = (id) => { return fs.collection('posts').doc(id).get(); };
 
 export {
   deletePost,

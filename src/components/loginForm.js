@@ -1,5 +1,6 @@
 import { onNavigate } from '../app.js';
 import { auth } from '../firebase.js';
+import { Posts } from './CRUDposts.js';
 
 export function LoginForm() {
   const loginForm = document.createElement('form');
@@ -22,6 +23,7 @@ export function LoginForm() {
   // Investigar por que el name es password-user OJO
   inputPassword.setAttribute('name', 'password-user');
   inputPassword.id = 'passwordLogin';
+  inputPassword.autocomplete = 'on';
   loginForm.appendChild(inputPassword);
   // Tercer hijo del form enviar
   buttonLogin.setAttribute('type', 'submit');
@@ -38,6 +40,7 @@ export function LoginForm() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
+        Posts();
         let user = userCredential.user;
         onNavigate('/feed');
       })

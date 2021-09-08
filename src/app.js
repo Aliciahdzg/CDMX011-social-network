@@ -37,6 +37,5 @@ auth.onAuthStateChanged((user) => {
     const userUID = user.uid;
     const email = user.email;
     const name = user.displayName;
-    console.log(userUID, email, name);
   }
 });

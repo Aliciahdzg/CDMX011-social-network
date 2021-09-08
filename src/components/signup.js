@@ -22,12 +22,6 @@ export const Signup = () => {
   signupView.appendChild(sectionChild);
   signupForm.id = 'signup';
   sectionChild.appendChild(signupForm);
-  // Nombre de usuario
-  nameInput.id = 'name';
-  nameInput.className = 'form-elements';
-  nameInput.placeholder = 'Nombre';
-  nameInput.type = 'text';
-  signupForm.appendChild(nameInput);
   // Primer hijo del form
   inputMail.setAttribute('type', 'email');
   inputMail.setAttribute('class', 'form-elements');
@@ -42,6 +36,7 @@ export const Signup = () => {
   // Investigar por que el name es password-user OJO
   inputPassword.setAttribute('name', 'password-user');
   inputPassword.id = 'passwordUser';
+  inputPassword.autocomplete = 'on';
   signupForm.appendChild(inputPassword);
   // Tercer hijo del form enviar
   buttonSignup.setAttribute('type', 'submit');
