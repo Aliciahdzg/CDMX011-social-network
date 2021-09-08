@@ -13,9 +13,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const fs = firebase.firestore();
 const user = () => {
-  const userID = firebase.auth().currentUser;
-  console.log(userID);
-  return userID;
+  return firebase.auth().currentUser;
 };
 
 const savePost = (description) => {
@@ -29,16 +27,12 @@ const savePost = (description) => {
     likes: [],
   });
 };
-const deletePost = (id) => {
-  fs.collection('posts').doc(id).delete();
+const deletePost = (id) => fs.collection('posts').doc(id).delete();
+const onGetPosts = (callback) => fs.collection('posts').onSnapshot(callback);
+const updatePost = (id, updatedPost) => fs.collection('posts').doc(id).update(updatedPost);
+const getPost = (id) => {
+  return fs.collection('posts').doc(id).get();
 };
-const onGetPosts = (callback) => {
-  fs.collection('posts').onSnapshot(callback);
-};
-const updatePost = (id, updatedPost) => {
-  fs.collection('posts').doc(id).update(updatedPost);
-};
-const getPost = (id) => { return fs.collection('posts').doc(id).get(); };
 
 export {
   deletePost,

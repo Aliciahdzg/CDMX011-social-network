@@ -18,14 +18,16 @@ export function Posts() {
   window.addEventListener('DOMContentLoaded', () => {
     onGetPosts((data) => {
       divPost.innerHTML = '';
+      const currentUser = user();
+      const welcome = document.createElement('h1');
+      welcome.textContent = `Bienvenidx ${currentUser.email}`;
+      divPost.appendChild(welcome);
       data.forEach((doc) => {
-        const userInfo = user();
-        console.log(userInfo.displayName);
         const post = doc.data();
         post.id = doc.id;
         divPost.innerHTML += `
         <section class= "box-posts">
-         <p> ${user.displayName}</p>
+         <p> ${post.uid[0]}</p>
          <p class = "text-post" >${post.description}</p>
          <section class="button-container">
            <section class="button-container-left">
@@ -38,8 +40,8 @@ export function Posts() {
           </section>
         </section>
         `;
-        console.log(user.email);
       });
+
       const publishBtn = document.querySelector('#publishPost');
       const modalBtn = document.querySelector('#form-post');
       modalBtn.addEventListener('submit', async(e) => {
@@ -64,7 +66,7 @@ export function Posts() {
       const btnsDelete = document.querySelectorAll('.btnDelete');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', async(e) => {
-          let result = confirm('¿Quieres borrar este post?');
+          const result = confirm('¿Quieres borrar este post?');
           if (result === true) {
             await deletePost(e.target.dataset.id);
           }
