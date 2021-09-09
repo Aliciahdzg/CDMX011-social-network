@@ -20,14 +20,15 @@ export function Posts() {
       divPost.innerHTML = '';
       const currentUser = user();
       const welcome = document.createElement('h1');
-      welcome.textContent = `Bienvenidx ${currentUser.email}`;
+      welcome.textContent = `Bienvenid@ ${currentUser.email}`;
+      welcome.className = 'welcome-user';
       divPost.appendChild(welcome);
       data.forEach((doc) => {
         const post = doc.data();
         post.id = doc.id;
         divPost.innerHTML += `
         <section class= "box-posts">
-         <p> ${post.uid[0]}</p>
+         <p class='publish-by'>Publicado por: ${post.uid[0]}</p>
          <p class = "text-post" >${post.description}</p>
          <section class="button-container">
            <section class="button-container-left">
