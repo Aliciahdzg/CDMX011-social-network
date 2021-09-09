@@ -1,5 +1,5 @@
 import {
-  increment,
+  likesArray,
   deletePost,
   onGetPosts,
   savePost,
@@ -25,6 +25,7 @@ export function Posts() {
       welcome.textContent = `Bienvenid@ ${currentUser.email}`;
       welcome.className = 'welcome-user';
       divPost.appendChild(welcome);
+      console.log(currentUser.uid);
       data.forEach((doc) => {
         const post = doc.data();
         const countLikes = post.likes;
@@ -45,11 +46,13 @@ export function Posts() {
         </section>
         `;
       });
+
       const likesBtn = document.querySelectorAll('.btnLikes');
-      likesBtn.forEach((likes) => {
-        likes.addEventListener('click', () => {
-          const likesCounter = fs.collection('posts').doc();
-          likesCounter.update({ reads: increment });
+      likesBtn.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          likesArray(currentUser.uid, getPost(e.target.dataset.id));
+          /*const likesCounter = fs.collection('posts').doc();
+          likesCounter.update({ reads: increment });*/
         });
       });
 
