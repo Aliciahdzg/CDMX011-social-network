@@ -23,9 +23,12 @@ const savePost = (description) => {
       callingUser.email,
       callingUser.displayName,
     ],
-    likes: [],
+    likes: [
+      callingUser.iud,
+    ],
   });
 };
+const increment = firebase.firestore.FieldValue.increment(1);
 const deletePost = (id) => fs.collection('posts').doc(id).delete();
 const onGetPosts = (callback) => fs.collection('posts').onSnapshot(callback);
 const updatePost = (id, updatedPost) => fs.collection('posts').doc(id).update(updatedPost);
@@ -34,6 +37,7 @@ const getPost = (id) => {
 };
 
 export {
+  increment,
   deletePost,
   onGetPosts,
   savePost,

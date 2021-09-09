@@ -1,10 +1,12 @@
 import {
+  increment,
   deletePost,
   onGetPosts,
   savePost,
   updatePost,
   getPost,
   user,
+  fs,
 } from '../firebase.js';
 
 export function Posts() {
@@ -25,6 +27,7 @@ export function Posts() {
       divPost.appendChild(welcome);
       data.forEach((doc) => {
         const post = doc.data();
+        const countLikes = post.likes;
         post.id = doc.id;
         divPost.innerHTML += `
         <section class= "box-posts">
@@ -32,7 +35,7 @@ export function Posts() {
          <p class = "text-post" >${post.description}</p>
          <section class="button-container">
            <section class="button-container-left">
-            <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete">
+            <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete"> ${countLikes.length}
            </section>
            <section class="button-container-right">
             <img src= "/images/editarazul.jpeg" type= "button" class = "btnEdit btnEditDelete" data-id ='${post.id}'>
@@ -41,6 +44,13 @@ export function Posts() {
           </section>
         </section>
         `;
+      });
+      const likesBtn = document.querySelectorAll('.btnLikes');
+      likesBtn.forEach((likes) => {
+        likes.addEventListener('click', () => {
+          const likesCounter = fs.collection('posts').doc();
+          likesCounter.update({ reads: increment });
+        });
       });
 
       const publishBtn = document.querySelector('#publishPost');
