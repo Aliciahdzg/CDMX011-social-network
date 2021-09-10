@@ -25,7 +25,6 @@ export function Posts() {
       welcome.textContent = `Bienvenid@ ${currentUser.email}`;
       welcome.className = 'welcome-user';
       divPost.appendChild(welcome);
-      console.log(currentUser.uid);
       data.forEach((doc) => {
         const post = doc.data();
         const countLikes = post.likes;
@@ -36,7 +35,7 @@ export function Posts() {
          <p class = "text-post" >${post.description}</p>
          <section class="button-container">
            <section class="button-container-left">
-            <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete"> ${countLikes.length}
+            <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete" data-id="${post.id}" > ${countLikes.length}
            </section>
            <section class="button-container-right">
             <img src= "/images/editarazul.jpeg" type= "button" class = "btnEdit btnEditDelete" data-id ='${post.id}'>
@@ -50,9 +49,7 @@ export function Posts() {
       const likesBtn = document.querySelectorAll('.btnLikes');
       likesBtn.forEach((btn) => {
         btn.addEventListener('click', (e) => {
-          likesArray(currentUser.uid, getPost(e.target.dataset.id));
-          /*const likesCounter = fs.collection('posts').doc();
-          likesCounter.update({ reads: increment });*/
+          likesArray(e.target.dataset.id);
         });
       });
 
