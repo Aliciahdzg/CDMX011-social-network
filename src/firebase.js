@@ -9,9 +9,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-const fs = firebase.firestore();
+const fs = firebase.firestore(app);
 const user = () => {
   return firebase.auth().currentUser;
 };
@@ -28,10 +28,11 @@ const savePost = (description) => {
   });
 };
 // const increment = firebase.firestore.FieldValue.increment(1);
-const likesArray = (currentUser, id) => {
+const likesArray = (id) => {
+  const callingUser = user();
   const post = fs.collection('posts').doc(id);
   post.update({
-    likes: fs.FieldValue.arrayUnion(currentUser.uid),
+    likes: firebase.firestore.FieldValue.arrayUnion(callingUser.uid),
   });
 };
 
