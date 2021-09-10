@@ -12,9 +12,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const fs = firebase.firestore(app);
-const user = () => {
-  return firebase.auth().currentUser;
-};
+const user = () => {return firebase.auth().currentUser;};
 
 const savePost = (description) => {
   const callingUser = user();
@@ -28,23 +26,21 @@ const savePost = (description) => {
   });
 };
 // const increment = firebase.firestore.FieldValue.increment(1);
-const likesArray = (id) => {
-  const callingUser = user();
-  const post = fs.collection('posts').doc(id);
-  post.update({
-    likes: firebase.firestore.FieldValue.arrayUnion(callingUser.uid),
-  });
-};
+// const likesArray = (id) => {
+//   const callingUser = user();
+//   const post = fs.collection('posts').doc(id);
+//   post.update({
+//     likes: firebase.firestore.FieldValue.arrayUnion(callingUser.uid),
+//   });
+// };
 
 const deletePost = (id) => fs.collection('posts').doc(id).delete();
 const onGetPosts = (callback) => fs.collection('posts').onSnapshot(callback);
 const updatePost = (id, updatedPost) => fs.collection('posts').doc(id).update(updatedPost);
-const getPost = (id) => {
-  return fs.collection('posts').doc(id).get();
+const getPost = (id) => {return fs.collection('posts').doc(id).get();
 };
 
 export {
-  likesArray,
   deletePost,
   onGetPosts,
   savePost,

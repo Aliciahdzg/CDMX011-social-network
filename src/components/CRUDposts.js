@@ -1,12 +1,12 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
 import {
-  likesArray,
   deletePost,
   onGetPosts,
   savePost,
   updatePost,
   getPost,
   user,
-  fs,
 } from '../firebase.js';
 
 export function Posts() {
@@ -45,11 +45,20 @@ export function Posts() {
         </section>
         `;
       });
-
       const likesBtn = document.querySelectorAll('.btnLikes');
       likesBtn.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          likesArray(e.target.dataset.id);
+        const callingUser = user();
+        btn.addEventListener('click', async (e) => {
+          const id = e.target.dataset.id;
+          const doc = await getPost(e.target.dataset.id);
+          if (doc.data().likes.includes(callingUser.uid)) {
+            return updatePost(id, {
+              likes: firebase.firestore.FieldValue.arrayRemove(callingUser.uid),
+            });
+          }
+          return updatePost(id, {
+            likes: firebase.firestore.FieldValue.arrayUnion(callingUser.uid),
+          });
         });
       });
 
