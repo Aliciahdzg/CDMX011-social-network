@@ -29,7 +29,8 @@ export function Posts() {
         const post = doc.data();
         const countLikes = post.likes;
         post.id = doc.id;
-        divPost.innerHTML += `
+        if (currentUser.email === post.uid[0]) {
+          divPost.innerHTML += `
         <section class= "box-posts">
          <p class='publish-by'>Publicado por: ${post.uid[0]}</p>
          <p class = "text-post" >${post.description}</p>
@@ -44,17 +45,20 @@ export function Posts() {
           </section>
         </section>
         `;
-
-        const allbuttonsEdDe = document.querySelectorAll('.btnEditDelete');
-        for (let i = 0; i <= allbuttonsEdDe.length; i += 1) {
-          if (currentUser.email === post.uid[0]) {
-            //allbuttonsEdDe[i].style.width = '15rem';
-          } else {
-            //allbuttonsEdDe[i].style.border = '5px solid black';
-          }
-
-          //console.log(currentUser.email, post.uid[0]);
+        } else {
+          divPost.innerHTML += `
+        <section class= "box-posts">
+         <p class='publish-by'>Publicado por: ${post.uid[0]}</p>
+         <p class = "text-post" >${post.description}</p>
+         <section class="button-container">
+           <section class="button-container-left">
+            <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete" data-id="${post.id}" > ${countLikes.length}
+           </section>
+          </section>
+        </section>
+        `;
         }
+
         /*allbuttonsEdDe.forEach((section) => {
           if (section.className.includes('btnHide')) {
             if (currentUser.email === post.uid[0]) {
@@ -63,6 +67,18 @@ export function Posts() {
           }
         });*/
       });
+      /*const allbuttonsEdDe = document.querySelectorAll('.btnEditDelete');
+      console.log(allbuttonsEdDe.length);
+      console.log(allbuttonsEdDe);
+      for (let i = 0; i <= allbuttonsEdDe.length; i += 1) {
+        if (currentUser.email === post.uid[0]) {
+          // allbuttonsEdDe[i].style.width = '15rem';
+        } else {
+          // allbuttonsEdDe[i].style.border = '5px solid black';
+        }
+
+        //console.log(currentUser.email, post.uid[0]);
+      }*/
       const likesBtn = document.querySelectorAll('.btnLikes');
       likesBtn.forEach((btn) => {
         const callingUser = user();
@@ -87,11 +103,15 @@ export function Posts() {
         closeModal.style.display = 'none';
         const description = document.getElementById('textPost');
         if (!editStatus) {
-          await savePost(description.value);
+          if (description.value !== '') {
+            await savePost(description.value);
+          }
         } else {
-          await updatePost(idd, {
-            description: description.value,
-          });
+          if (description.value !== '') {
+            await updatePost(idd, {
+              description: description.value,
+            });
+          }
           editStatus = false;
           publishBtn.innerText = 'Publicar';
           idd = '';
