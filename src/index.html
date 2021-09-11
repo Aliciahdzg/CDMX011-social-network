@@ -2,52 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>PLANTAGRAM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/jpg" href="images/favicon.png">
+  <title>PLANTAGRAM</title>
+
 </head>
 
 <body>
-    <section class="container">
-        <h1 class="logo">Plantagram</h1>
-        <form id="signin">
-            <!-- <label>Correo</label>-->
-            <input type="email" id="emailUser" class="form-elements" placeholder="Correo" name="Email" required />
-            <!--<label>Contraseña</label>-->
-            <input type="password" id="passwordUser" class="form-elements" placeholder="Contraseña" name="password-user" required>
-            <button type="submit" value="enviar" id="submitBTN" class="signup-button">Enviar</button>
-        </form><br>
-        <img src="plants.jpg" alt="Plantagram" class="image-size">
-    </section>
+  <div id="root"></div>
+  <!--FIREBASE-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
 
-    <!--FIREBASE-->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js "></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyCePjssRyoR6G8wuu7NbwopYolEZvL5IVw",
-            authDomain: "plantagram-8b720.firebaseapp.com",
-            projectId: "plantagram-8b720",
-            storageBucket: "plantagram-8b720.appspot.com",
-            messagingSenderId: "419438451849",
-            appId: "1:419438451849:web:96555010ec2ba7afb1fa58"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-    </script>
-    <script type="module" src="main.js"></script>
+  <!-- <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCePjssRyoR6G8wuu7NbwopYolEZvL5IVw",
+      authDomain: "plantagram-8b720.firebaseapp.com",
+      projectId: "plantagram-8b720",
+      storageBucket: "plantagram-8b720.appspot.com",
+      messagingSenderId: "419438451849",
+      appId: "1:419438451849:web:96555010ec2ba7afb1fa58"
+    };
+    // Initialize Firebase
+    /*firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const fs = firebase.firestore();*/
+  </script>-->
+
+  <script type="module" src="app.js"></script>
+  <script type="module" src="firebase.js"></script>
+
 </body>
 
 </html>
