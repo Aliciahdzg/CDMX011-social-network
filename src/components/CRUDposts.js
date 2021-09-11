@@ -37,18 +37,36 @@ export function Posts() {
            <section class="button-container-left">
             <img src= "/images/heartLikes.png" type= "button" class="btnLikes btnEditDelete" data-id="${post.id}" > ${countLikes.length}
            </section>
-           <section class="button-container-right">
+           <section class="button-container-right allbuttons ">
             <img src= "/images/editarazul.jpeg" type= "button" class = "btnEdit btnEditDelete" data-id ='${post.id}'>
             <img src= "/images/boterojo.jpeg" type= "button" class = "btnDelete btnEditDelete" data-id ='${post.id}'>
            </section>
           </section>
         </section>
         `;
+
+        const allbuttonsEdDe = document.querySelectorAll('.btnEditDelete');
+        for (let i = 0; i <= allbuttonsEdDe.length; i += 1) {
+          if (currentUser.email === post.uid[0]) {
+            //allbuttonsEdDe[i].style.width = '15rem';
+          } else {
+            //allbuttonsEdDe[i].style.border = '5px solid black';
+          }
+
+          //console.log(currentUser.email, post.uid[0]);
+        }
+        /*allbuttonsEdDe.forEach((section) => {
+          if (section.className.includes('btnHide')) {
+            if (currentUser.email === post.uid[0]) {
+              allbuttonsEdDe.dataset.id;
+            }
+          }
+        });*/
       });
       const likesBtn = document.querySelectorAll('.btnLikes');
       likesBtn.forEach((btn) => {
         const callingUser = user();
-        btn.addEventListener('click', async (e) => {
+        btn.addEventListener('click', async(e) => {
           const id = e.target.dataset.id;
           const doc = await getPost(e.target.dataset.id);
           if (doc.data().likes.includes(callingUser.uid)) {
@@ -61,7 +79,6 @@ export function Posts() {
           });
         });
       });
-
       const publishBtn = document.querySelector('#publishPost');
       const modalBtn = document.querySelector('#form-post');
       modalBtn.addEventListener('submit', async(e) => {
@@ -92,6 +109,15 @@ export function Posts() {
           }
         });
       });
+      /* async function showBtns(e) {
+         const doc = await getPost(e.target.dataset.id);
+         console.log(doc);
+         if (currentUser.email === doc.uid[0]) {
+           if (btnsDelete === 'btnHide') {
+             document.queryselectorAll('.btnHide').setAttribute('class', 'btnShow');
+           }
+         }
+       }*/
       const editModal = document.getElementById('modalshow');
       const btnsEdit = document.querySelectorAll('.btnEdit');
       btnsEdit.forEach((btn) => {
