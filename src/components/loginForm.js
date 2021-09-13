@@ -5,8 +5,12 @@ import { Posts } from './CRUDposts.js';
 export function LoginForm() {
   const loginForm = document.createElement('form');
   const inputMail = document.createElement('input');
+  const displayPassword = document.createElement('div');
   const inputPassword = document.createElement('input');
+  const showPassword = document.createElement('img');
+  const hidePassword = document.createElement('img');
   const buttonLogin = document.createElement('button');
+
   // Section
   loginForm.id = 'login';
   // Primer hijo del form
@@ -16,15 +20,41 @@ export function LoginForm() {
   inputMail.setAttribute('name', 'email');
   inputMail.id = 'emailLogin';
   loginForm.appendChild(inputMail);
-  // Segundo hijo del form
+  // div
+
+  //password
   inputPassword.setAttribute('type', 'password');
-  inputPassword.setAttribute('class', 'form-elements');
+  displayPassword.setAttribute('class', 'form-elements');
   inputPassword.setAttribute('placeholder', 'Contraseña');
+  inputPassword.className = 'input-password';
   // Investigar por que el name es password-user OJO
   inputPassword.setAttribute('name', 'password-user');
   inputPassword.id = 'passwordLogin';
   inputPassword.autocomplete = 'on';
-  loginForm.appendChild(inputPassword);
+  showPassword.className = 'eye-img';
+  showPassword.src = 'images/eye-regular.svg';
+  showPassword.type = 'button';
+  hidePassword.src = 'images/eye-slash.regular.svg';
+  hidePassword.className = 'eye-img';
+  hidePassword.type = 'button';
+  hidePassword.id = 'hidePassword';
+  displayPassword.appendChild(inputPassword);
+  displayPassword.appendChild(showPassword);
+  loginForm.appendChild(displayPassword);
+  //listener de ocultar y mostrar contraseña
+  showPassword.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputType = document.getElementById('passwordLogin');
+    //let password = document.getElementById('hidePassword');
+    if (inputType.type === 'password') {
+      inputType.type = 'text';
+      displayPassword.replaceChild(hidePassword, showPassword);
+    } else {
+      inputType.type = 'password';
+      displayPassword.replaceChild(showPassword, hidePassword);
+    }
+  });
+
   // Tercer hijo del form enviar
   buttonLogin.setAttribute('type', 'submit');
   // buttonLogin.setAttribute('value', 'enviar');

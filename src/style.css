@@ -128,11 +128,16 @@ nav {
   width: 50%;
 }
 
+.eye-img{
+  width: 1rem;
+}
+
 .form-elements {
   margin: 1rem;
   background: #DCE2F2;
   padding: 1rem;
   width: 70%;
+  display: flex;
 }
 
 .grid-father {
@@ -163,6 +168,11 @@ nav {
 
 .image-size {
   max-width: 70%;
+}
+
+.input-password{
+  background: #DCE2F2;
+  width: -webkit-fill-available;
 }
 
 .login-in-register {
