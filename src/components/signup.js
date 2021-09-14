@@ -10,10 +10,12 @@ export const Signup = () => {
   const signupForm = document.createElement('form');
   const inputMail = document.createElement('input');
   const inputPassword = document.createElement('input');
+  const displayPassword = document.createElement('div');
+  const showPassword = document.createElement('img');
+  const hidePassword = document.createElement('img');
   const buttonSignup = document.createElement('button');
   const loginButton = document.createElement('button');
   const spaceButtons = document.createElement('br');
-  // const nameInput = document.createElement('input');
   // Vista de login
   signupView.setAttribute('class', 'grid-father');
   // Section
@@ -31,13 +33,38 @@ export const Signup = () => {
   signupForm.appendChild(inputMail);
   // Segundo hijo del form
   inputPassword.setAttribute('type', 'password');
-  inputPassword.setAttribute('class', 'form-elements');
+  displayPassword.setAttribute('class', 'form-elements');
   inputPassword.setAttribute('placeholder', 'Contraseña');
-  // Investigar por que el name es password-user OJO
+  inputPassword.className = 'input-password';
   inputPassword.setAttribute('name', 'password-user');
   inputPassword.id = 'passwordUser';
   inputPassword.autocomplete = 'on';
-  signupForm.appendChild(inputPassword);
+  showPassword.className = 'eye-img';
+  showPassword.src = 'images/eye-regular.svg';
+  showPassword.type = 'button';
+  hidePassword.src = 'images/eye-slash-regular.svg';
+  hidePassword.className = 'eye-img';
+  hidePassword.type = 'button';
+  displayPassword.appendChild(inputPassword);
+  displayPassword.appendChild(showPassword);
+  signupForm.appendChild(displayPassword);
+  // listener de ocultar y mostrar contraseña
+  showPassword.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputType = document.getElementById('passwordUser');
+    if (inputType.type === 'password') {
+      inputType.type = 'text';
+      displayPassword.replaceChild(hidePassword, showPassword);
+    }
+  });
+  hidePassword.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputType = document.getElementById('passwordUser');
+    if (inputType.type === 'text') {
+      inputType.type = 'password';
+      displayPassword.replaceChild(showPassword, hidePassword);
+    }
+  });
   // Tercer hijo del form enviar
   buttonSignup.setAttribute('type', 'submit');
   // buttonSignup.setAttribute('value', 'enviar');
