@@ -1,5 +1,5 @@
 import { onNavigate } from '../app.js';
-import { auth } from '../firebase.js';
+import { signout } from '../firebase.js';
 
 export function signoutbtn() {
   const signOutBtn = document.createElement('img');
@@ -9,9 +9,10 @@ export function signoutbtn() {
   signOutBtn.classList.add('sign-out-button');
   signOutBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    auth.signOut().then(() => {
-      onNavigate('/');
-    });
+    signout()
+      .signOut().then(() => {
+        onNavigate('/');
+      });
   });
   return signOutBtn;
 }

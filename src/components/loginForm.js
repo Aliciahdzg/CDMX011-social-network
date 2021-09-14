@@ -1,5 +1,5 @@
 import { onNavigate } from '../app.js';
-import { auth } from '../firebase.js';
+import { logIn } from '../firebase.js';
 import { Posts } from './CRUDposts.js';
 
 export function LoginForm() {
@@ -69,8 +69,7 @@ export function LoginForm() {
     e.preventDefault();
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('passwordLogin').value;
-    auth
-      .signInWithEmailAndPassword(email, password)
+    logIn(email, password)
       .then(() => {
         Posts();
         // const user = userCredential.user;

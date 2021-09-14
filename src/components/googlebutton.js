@@ -1,5 +1,5 @@
 import { onNavigate } from '../app.js';
-import { auth } from '../firebase.js';
+import { singinGoogle } from '../firebase.js';
 
 export function ButtonGoogle() {
   const googleButton = document.createElement('button');
@@ -15,7 +15,8 @@ export function ButtonGoogle() {
     provider.setCustomParameters({
       prompt: 'select_account',
     });
-    auth.signInWithPopup(provider)
+    singinGoogle(provider)
+      .signInWithPopup(provider)
       .then(() => {
         onNavigate('/feed');
       })

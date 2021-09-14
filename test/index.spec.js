@@ -1,9 +1,7 @@
-// importamos la funcion que vamos a testear
-/* import { myFunction } from '../src/lib/index';
+import { Signup } from '../src/components/signup.js';
 
-describe('myFunction', () => {
+describe('Signup', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof Signup).toBe('function');
   });
 });
- */
