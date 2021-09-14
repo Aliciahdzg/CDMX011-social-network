@@ -14,14 +14,10 @@ const auth = firebase.auth();
 const fs = firebase.firestore(app);
 const user = () => firebase.auth().currentUser;
 
-const signUp = (email, password) => auth
-  .createUserWithEmailAndPassword(email, password);
-const logIn = (email, password) => auth
-  .signInWithEmailAndPassword(email, password);
-const singinGoogle = (provider) => auth
-  .signInWithEmailAndPassword(provider);
-const signout = () => auth
-  .signOut();
+const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+const logIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
+const singinGoogle = (provider) => auth.signInWithPopup(provider);
+const signout = () => auth.signOut();
 
 const savePost = (description) => {
   const callingUser = user();

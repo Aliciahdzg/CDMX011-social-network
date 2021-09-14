@@ -72,7 +72,6 @@ export function LoginForm() {
     logIn(email, password)
       .then(() => {
         Posts();
-        // const user = userCredential.user;
         onNavigate('/feed');
       })
       .catch((error) => {
