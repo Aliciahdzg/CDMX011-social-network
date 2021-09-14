@@ -23,8 +23,9 @@ export function logo() {
   imgLogoLand.id = 'logo-img-land';
   firstChild.appendChild(imgLogoLand);
   // Texto de bienvenida
-  welcomeText.setAttribute('class', 'welcolme-text');
+  welcomeText.setAttribute('class', 'welcome-text');
   welcomeText.textContent = 'Bienvenid@ a la plataforma destinada a los amantes de plantas';
+  firstChild.appendChild(welcomeText);
 
   return firstChild;
 }
