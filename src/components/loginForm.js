@@ -34,7 +34,7 @@ export function LoginForm() {
   showPassword.className = 'eye-img';
   showPassword.src = 'images/eye-regular.svg';
   showPassword.type = 'button';
-  hidePassword.src = 'images/eye-slash.regular.svg';
+  hidePassword.src = 'images/eye-slash-regular.svg';
   hidePassword.className = 'eye-img';
   hidePassword.type = 'button';
   hidePassword.id = 'hidePassword';
@@ -49,7 +49,12 @@ export function LoginForm() {
     if (inputType.type === 'password') {
       inputType.type = 'text';
       displayPassword.replaceChild(hidePassword, showPassword);
-    } else {
+    }
+  });
+  hidePassword.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputType = document.getElementById('passwordLogin');
+    if (inputType.type === 'text') {
       inputType.type = 'password';
       displayPassword.replaceChild(showPassword, hidePassword);
     }
