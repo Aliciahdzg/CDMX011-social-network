@@ -58,31 +58,11 @@ export function Posts() {
         </section>
         `;
         }
-
-        /*allbuttonsEdDe.forEach((section) => {
-          if (section.className.includes('btnHide')) {
-            if (currentUser.email === post.uid[0]) {
-              allbuttonsEdDe.dataset.id;
-            }
-          }
-        });*/
       });
-      /*const allbuttonsEdDe = document.querySelectorAll('.btnEditDelete');
-      console.log(allbuttonsEdDe.length);
-      console.log(allbuttonsEdDe);
-      for (let i = 0; i <= allbuttonsEdDe.length; i += 1) {
-        if (currentUser.email === post.uid[0]) {
-          // allbuttonsEdDe[i].style.width = '15rem';
-        } else {
-          // allbuttonsEdDe[i].style.border = '5px solid black';
-        }
-
-        //console.log(currentUser.email, post.uid[0]);
-      }*/
       const likesBtn = document.querySelectorAll('.btnLikes');
       likesBtn.forEach((btn) => {
         const callingUser = user();
-        btn.addEventListener('click', async(e) => {
+        btn.addEventListener('click', async (e) => {
           const id = e.target.dataset.id;
           const doc = await getPost(e.target.dataset.id);
           if (doc.data().likes.includes(callingUser.uid)) {
@@ -97,7 +77,7 @@ export function Posts() {
       });
       const publishBtn = document.querySelector('#publishPost');
       const modalBtn = document.querySelector('#form-post');
-      modalBtn.addEventListener('submit', async(e) => {
+      modalBtn.addEventListener('submit', async (e) => {
         e.preventDefault();
         const closeModal = document.querySelector('#modalshow');
         closeModal.style.display = 'none';
@@ -122,26 +102,18 @@ export function Posts() {
 
       const btnsDelete = document.querySelectorAll('.btnDelete');
       btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', async(e) => {
+        btn.addEventListener('click', async (e) => {
           const result = confirm('¿Quieres borrar este post?');
           if (result === true) {
             await deletePost(e.target.dataset.id);
           }
         });
       });
-      /* async function showBtns(e) {
-         const doc = await getPost(e.target.dataset.id);
-         console.log(doc);
-         if (currentUser.email === doc.uid[0]) {
-           if (btnsDelete === 'btnHide') {
-             document.queryselectorAll('.btnHide').setAttribute('class', 'btnShow');
-           }
-         }
-       }*/
+
       const editModal = document.getElementById('modalshow');
       const btnsEdit = document.querySelectorAll('.btnEdit');
       btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', async(e) => {
+        btn.addEventListener('click', async (e) => {
           const docEdit = await getPost(e.target.dataset.id);
           const postEdit = docEdit.data();
 

@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { Login } from './components/login.js';
 import { Feed } from './components/feed.js';
 import { Signup } from './components/signup.js';
 import { auth } from './firebase.js';
-import { Posts } from './components/CRUDposts.js';
 
 const routes = {
   '/': Login,

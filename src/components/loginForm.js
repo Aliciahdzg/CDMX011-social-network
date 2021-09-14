@@ -20,9 +20,7 @@ export function LoginForm() {
   inputMail.setAttribute('name', 'email');
   inputMail.id = 'emailLogin';
   loginForm.appendChild(inputMail);
-  // div
-
-  //password
+  // password
   inputPassword.setAttribute('type', 'password');
   displayPassword.setAttribute('class', 'form-elements');
   inputPassword.setAttribute('placeholder', 'Contraseña');
@@ -41,11 +39,10 @@ export function LoginForm() {
   displayPassword.appendChild(inputPassword);
   displayPassword.appendChild(showPassword);
   loginForm.appendChild(displayPassword);
-  //listener de ocultar y mostrar contraseña
+  // listener de ocultar y mostrar contraseña
   showPassword.addEventListener('click', (e) => {
     e.preventDefault();
     const inputType = document.getElementById('passwordLogin');
-    //let password = document.getElementById('hidePassword');
     if (inputType.type === 'password') {
       inputType.type = 'text';
       displayPassword.replaceChild(hidePassword, showPassword);
@@ -74,9 +71,9 @@ export function LoginForm() {
     const password = document.getElementById('passwordLogin').value;
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+      .then(() => {
         Posts();
-        let user = userCredential.user;
+        // const user = userCredential.user;
         onNavigate('/feed');
       })
       .catch((error) => {

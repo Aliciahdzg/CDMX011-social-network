@@ -4,7 +4,6 @@ import { spacebetween } from './spacebetween.js';
 import { redirectionregister } from './redirectionregister.js';
 import { logo } from './logo.js';
 
-
 export const Login = () => {
   const loginView = document.createElement('section');
   const sectionChild = document.createElement('section');

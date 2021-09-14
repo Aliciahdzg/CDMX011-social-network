@@ -14,4 +14,4 @@ export function signoutbtn() {
     });
   });
   return signOutBtn;
-};
+}
