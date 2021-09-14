@@ -35,7 +35,6 @@ export function LoginForm() {
   hidePassword.src = 'images/eye-slash-regular.svg';
   hidePassword.className = 'eye-img';
   hidePassword.type = 'button';
-  hidePassword.id = 'hidePassword';
   displayPassword.appendChild(inputPassword);
   displayPassword.appendChild(showPassword);
   loginForm.appendChild(displayPassword);
