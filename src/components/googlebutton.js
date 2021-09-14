@@ -16,11 +16,11 @@ export function ButtonGoogle() {
       prompt: 'select_account',
     });
     auth.signInWithPopup(provider)
-      .then(result => {
+      .then(() => {
         onNavigate('/feed');
       })
-      .catch(err => {
-        console.log(err);
+      .catch((err) => {
+        alert(err);
       });
   });
   // Imagen del logo de google

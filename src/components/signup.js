@@ -13,7 +13,7 @@ export const Signup = () => {
   const buttonSignup = document.createElement('button');
   const loginButton = document.createElement('button');
   const spaceButtons = document.createElement('br');
-  const nameInput = document.createElement('input');
+  // const nameInput = document.createElement('input');
   // Vista de login
   signupView.setAttribute('class', 'grid-father');
   // Section
@@ -53,7 +53,10 @@ export const Signup = () => {
     const password = document.getElementById('passwordUser').value;
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(userCredential => {})
+      .then(() => {
+        alert('usuario registrado');
+        onNavigate('/feed');
+      })
       .catch((error) => {
         // const errorCode = error.code;
         const errorMessage = error.message;

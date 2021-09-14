@@ -12,7 +12,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const fs = firebase.firestore(app);
-const user = () => { return firebase.auth().currentUser; };
+const user = () => firebase.auth().currentUser;
 
 const savePost = (description) => {
   const callingUser = user();
@@ -37,9 +37,7 @@ const savePost = (description) => {
 const deletePost = (id) => fs.collection('posts').doc(id).delete();
 const onGetPosts = (callback) => fs.collection('posts').onSnapshot(callback);
 const updatePost = (id, updatedPost) => fs.collection('posts').doc(id).update(updatedPost);
-const getPost = (id) => {
-  return fs.collection('posts').doc(id).get();
-};
+const getPost = (id) => fs.collection('posts').doc(id).get();
 
 export {
   deletePost,
