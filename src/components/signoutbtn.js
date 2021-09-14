@@ -10,7 +10,7 @@ export function signoutbtn() {
   signOutBtn.addEventListener('click', (e) => {
     e.preventDefault();
     signout()
-      .signOut().then(() => {
+      .then(() => {
         onNavigate('/');
       });
   });
