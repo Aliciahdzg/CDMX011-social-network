@@ -2,7 +2,7 @@ import { onNavigate } from '../app.js';
 import { ButtonGoogle } from './googlebutton.js';
 import { spacebetween } from './spacebetween.js';
 import { logo } from './logo.js';
-import { auth } from '../firebase.js';
+import { signUp } from '../firebase.js';
 
 export const Signup = () => {
   const signupView = document.createElement('section');
@@ -78,14 +78,13 @@ export const Signup = () => {
     // const button = document.getElementById('submitBTN').value;
     const email = document.getElementById('emailUser').value;
     const password = document.getElementById('passwordUser').value;
-    auth
-      .createUserWithEmailAndPassword(email, password)
+
+    signUp(email, password)
       .then(() => {
         alert('usuario registrado');
         onNavigate('/feed');
       })
       .catch((error) => {
-        // const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
       });

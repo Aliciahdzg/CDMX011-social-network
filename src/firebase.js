@@ -14,6 +14,15 @@ const auth = firebase.auth();
 const fs = firebase.firestore(app);
 const user = () => firebase.auth().currentUser;
 
+const signUp = (email, password) => auth
+  .createUserWithEmailAndPassword(email, password);
+const logIn = (email, password) => auth
+  .signInWithEmailAndPassword(email, password);
+const singinGoogle = (provider) => auth
+  .signInWithEmailAndPassword(provider);
+const signout = () => auth
+  .signOut();
+
 const savePost = (description) => {
   const callingUser = user();
   fs.collection('posts').doc().set({
@@ -25,14 +34,6 @@ const savePost = (description) => {
     likes: [],
   });
 };
-// const increment = firebase.firestore.FieldValue.increment(1);
-// const likesArray = (id) => {
-//   const callingUser = user();
-//   const post = fs.collection('posts').doc(id);
-//   post.update({
-//     likes: firebase.firestore.FieldValue.arrayUnion(callingUser.uid),
-//   });
-// };
 
 const deletePost = (id) => fs.collection('posts').doc(id).delete();
 const onGetPosts = (callback) => fs.collection('posts').onSnapshot(callback);
@@ -43,9 +44,12 @@ export {
   deletePost,
   onGetPosts,
   savePost,
-  auth,
-  fs,
   updatePost,
   getPost,
   user,
+  signUp,
+  logIn,
+  singinGoogle,
+  signout,
+  auth,
 };
