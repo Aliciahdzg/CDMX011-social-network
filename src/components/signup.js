@@ -40,9 +40,9 @@ export const Signup = () => {
   inputPassword.id = 'passwordUser';
   inputPassword.autocomplete = 'on';
   showPassword.className = 'eye-img';
-  showPassword.src = 'images/eye-regular.svg';
+  showPassword.src = 'images/eye-regular.jpeg';
   showPassword.type = 'button';
-  hidePassword.src = 'images/eye-slash-regular.svg';
+  hidePassword.src = 'images/eye-slash-regular.jpeg';
   hidePassword.className = 'eye-img';
   hidePassword.type = 'button';
   displayPassword.appendChild(inputPassword);
