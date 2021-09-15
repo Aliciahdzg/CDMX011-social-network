@@ -19,10 +19,10 @@ publicaciones que le gusten y editar y borrar las propias, es posible visualizar
 
 ## 2. Prototipo de Baja y Alta fidelidad
 
-![baja_fidelidad](C:\DEV\Laboratoria\CDMX011-social-network\src\images\prototipos de diseño\BajaFidelidad.jpeg)
+![baja_fidelidad](https://github.com/Aliciahdzg/CDMX011-social-network/blob/DEV/src/images/prototipos%20de%20dise%C3%B1o/BajaFidelidad.jpeg)
 
-![alta_fidelidad_login](C:\DEV\Laboratoria\CDMX011-social-network\src\images\prototipos de diseño\PAFlogin.jpeg)
+![alta_fidelidad_login](https://github.com/Aliciahdzg/CDMX011-social-network/blob/DEV/src/images/prototipos%20de%20dise%C3%B1o/PAFlogin.jpeg)
 
-![alta_fidelidad_feed](C:\DEV\Laboratoria\CDMX011-social-network\src\images\prototipos de diseño\PAFfeed.jpeg)
+![alta_fidelidad_feed](https://github.com/Aliciahdzg/CDMX011-social-network/blob/DEV/src/images/prototipos%20de%20dise%C3%B1o/PAFfeed.jpeg)
 
 
