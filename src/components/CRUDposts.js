@@ -64,13 +64,13 @@ export function Posts() {
       btn.addEventListener('click', async (e) => {
         const id = e.target.dataset.id;
         const doc = await getPost(e.target.dataset.id);
-        if (doc.data().likes.includes(callingUser.uid)) {
+        if (doc.data().likes.includes(callingUser.email)) {
           return updatePost(id, {
-            likes: firebase.firestore.FieldValue.arrayRemove(callingUser.uid),
+            likes: firebase.firestore.FieldValue.arrayRemove(callingUser.email),
           });
         }
         return updatePost(id, {
-          likes: firebase.firestore.FieldValue.arrayUnion(callingUser.uid),
+          likes: firebase.firestore.FieldValue.arrayUnion(callingUser.email),
         });
       });
     });
