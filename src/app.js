@@ -28,7 +28,9 @@ window.onpopstate = () => {
   rootDiv.appendChild(component());
 };
 
-rootDiv.appendChild(component());
+window.onload = () => {
+  rootDiv.appendChild(component());
+};
 
 auth.onAuthStateChanged((user) => {
   if (!user) {
