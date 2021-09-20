@@ -31,10 +31,9 @@ describe('Signup', () => {
     await Promise.resolve();
     expect(mockSignUp).toHaveBeenCalled();
   });
-  it('should show password and replace button img by an slash-eye', () => {
-    // const displayPassword = component.querySelector('#displayPassword');
+  /* it('should show password and replace button img by an slash-eye', () => {
     const togglePassword = component.querySelector('#togglePassword');
     togglePassword.click();
-    expect(togglePassword).toMatchSnapshot();
-  });
+    // expect(togglePassword).toMatchSnapshot();
+  }); */
 });
