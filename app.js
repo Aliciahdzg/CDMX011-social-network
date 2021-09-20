@@ -1,11 +1,11 @@
-import { Home } from './components/home.js';
+/* eslint-disable no-unused-vars */
 import { Login } from './components/login.js';
 import { Feed } from './components/feed.js';
 import { Signup } from './components/signup.js';
+import { auth } from './firebase.js';
 
 const routes = {
-  '/': Home,
-  '/login': Login,
+  '/': Login,
   '/signup': Signup,
   '/feed': Feed,
 };
@@ -28,4 +28,16 @@ window.onpopstate = () => {
   rootDiv.appendChild(component());
 };
 
-rootDiv.appendChild(component());
+window.onload = () => {
+  rootDiv.appendChild(component());
+};
+
+auth.onAuthStateChanged((user) => {
+  if (!user) {
+    onNavigate('/');
+  } else {
+    const userUID = user.uid;
+    const email = user.email;
+    const name = user.displayName;
+  }
+});
