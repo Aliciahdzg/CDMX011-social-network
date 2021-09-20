@@ -1,11 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Signup should render signup view 1`] = `"<section class=\\"grid-father\\"><section class=\\"container\\"><h1 class=\\"logo\\" id=\\"logo-title\\">Plantagram</h1><img src=\\"images/logo.png\\" alt=\\"plantita\\" class=\\"image-size\\" id=\\"logo-img\\"><img src=\\"images/girls.jpg\\" alt=\\"chicas\\" class=\\"image-size\\" id=\\"logo-img-land\\"><p class=\\"welcome-text\\">Bienvenid@ a la plataforma destinada a los amantes de plantas</p></section><section class=\\"container\\"><form id=\\"signup\\"><input type=\\"email\\" class=\\"form-elements\\" placeholder=\\"Correo\\" name=\\"email\\" id=\\"emailUser\\"><div class=\\"form-elements\\" id=\\"displayPassword\\"><input type=\\"password\\" placeholder=\\"Contraseña\\" class=\\"input-password\\" name=\\"password-user\\" id=\\"passwordUser\\" autocomplete=\\"on\\"><img id=\\"togglePassword\\" class=\\"eye-img\\" src=\\"images/eye-regular.jpeg\\"></div><button type=\\"submit\\" class=\\"signup-button\\" id=\\"submitBTN\\">Regístrate</button></form><p class=\\"hr-test\\"><span>ó</span></p><button type=\\"button\\" class=\\"signup-google button-google\\" id=\\"registerGoogle\\"><img src=\\"https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg \\"><div class=\\"access-google\\">Accede con Google</div></button><br><button class=\\"login-in-register\\" type=\\"button\\">Inicia Sesion Aquí</button></section></section>"`;
-
-exports[`Signup should show password and replace button img by an slash-eye 1`] = `
-<img
-  class="eye-img"
-  id="togglePassword"
-  src="images/eye-regular.jpeg"
-/>
-`;
