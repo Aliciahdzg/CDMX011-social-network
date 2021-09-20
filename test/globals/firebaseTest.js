@@ -1,8 +1,8 @@
 global.firebase = {
   initializeApp: () => console.log('hi firebase'),
-  firestore: () => console.log('hi firestore'),
+  firestore: () => console.log('hi'),
   auth: () => ({
-    createUserWithEmailAndPassword: () => console.log('hi signup'),
-    onAuthStateChanged: () => console.log('hola usuario'),
+    createUserWithEmailAndPassword: () => Promise.resolve(),
+    onAuthStateChanged: () => Promise.resolve(),
   }),
 };
